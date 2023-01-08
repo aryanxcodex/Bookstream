@@ -1,3 +1,8 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
@@ -9,11 +14,10 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/users');
-
 const userRoutes = require('./routes/users');
 
 mongoose.connect(
-  "mongodb+srv://Aryan:aryanhello@library.j96grbo.mongodb.net/?retryWrites=true&w=majority"
+  process.env.MONGODB_URI
 );
 
 const sessionConfig = {
