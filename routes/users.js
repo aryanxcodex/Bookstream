@@ -12,7 +12,7 @@ router.post('/register', catchAsync(async (req,res)=>{
     const role = "user";
     const user = new User({email, username, role});
     const registeredUser = await User.register(user,password);
-    req.flash('success','Welcome to yyo');
+    req.flash('success','Welcome to bookstream');
     res.redirect("/");
 }));
 
