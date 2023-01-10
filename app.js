@@ -17,7 +17,7 @@ const User = require('./models/users');
 const userRoutes = require('./routes/users');
 
 mongoose.connect(
-  process.env.MONGODB_URI
+    process.env.MONGODB_URI
 );
 
 const sessionConfig = {
