@@ -10,9 +10,8 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.registerUser = async (req, res) => {
-  const { email, username, password } = req.body;
-  const role = "user";
-  const user = new User({ email, username, role });
+  const { email, username, password, dept} = req.body;
+  const user = new User({ email, username, dept });
   const registeredUser = await User.register(user, password);
   if (registeredUser) {
     sendEmail(email);
