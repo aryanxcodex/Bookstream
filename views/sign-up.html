@@ -7,7 +7,7 @@
     <title>Bookstream</title>
     <link rel="icon" type="image/x-icon" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="sign-up.css">
 </head>
 <body>
     <header>
@@ -22,31 +22,39 @@
         <div class="form-container">
             <h2>You are just a few steps away from a seamless transition.....</h2>
             <div class="actions-container">
-               <div class="heading">
-                    <img src="signup-users-icon.svg" alt="user-icon">
-                    <p>Let's get started!</p>
-               </div>
-               <div class="buttons">
-                    <a href="librarian-login.html" style="text-decoration: none;">
-                        <div class="librarian-login">
-                            <img src="book-icon.svg" alt="login">
-                            <p>Librarian Login</p>
+                <div class="login-form">
+                    <div class="title">
+                        <img src="forward-icon.svg" alt="login">
+                        <p>Just a few steps, and we will be done..</p>
+                    </div>
+                    <hr>
+                    <form action="">
+                        <div class="details">
+                            <div class="college-id">
+                                <label for="college-id">College ID</label>
+                                <input type="text" name="college-id" id="college-id">
+                            </div>
+                            <div class="designation">
+                                <label for="user-designation">Designation</label>
+                                <input type="text" name="user-code" id="designation">
+                            </div>  
                         </div>
-                    </a>
-                    <p>OR</p>
-                    <a href="student-login.html" style="text-decoration: none;">
-                        <div class="student-login">
-                            <img src="user-icon.svg" alt="sign-up">
-                            <p>Student Login</p>
+                        <div class="fullname">
+                            <label for="user-name">Your Name</label><br>
+                            <div class="name">
+                                <input type="text" name="fullname" id="fullname">
+                            </div>
                         </div>
-                    </a>
-               </div>
-               <div class="super-admin-login">
-                <a href="super-admin-login.html" style="text-decoration: none; color: black;"><p>Login as Super Admin</p></a>
-               </div>
-               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam, rerum. Consequuntur voluptatum, eum suscipit eligendi obcaecati harum libero quisquam velit beatae dolorum maiores dolore numquam illum, quasi impedit nesciunt voluptate.</p>
+                        <div class="next">
+                            <button type="submit" id="next">Next</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+
+    </script>
 </body>
 </html>

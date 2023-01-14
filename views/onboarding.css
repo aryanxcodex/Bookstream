@@ -31,6 +31,14 @@ header img{
     /* border: 2px solid black; */
 }
 
+#prev-page{
+    position: relative;
+    left: 50px;
+    top: 65px;
+    width: 35px;
+    height: 35px;
+}
+
 .text-container{
     width: 40%;
     position: relative;
