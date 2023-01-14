@@ -20,4 +20,7 @@ router.post(
   adminController.login
 );
 
+router.get('/waitingList', catchAsync(adminController.renderWaitingListPage));
+
+
 module.exports = router;
