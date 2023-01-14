@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Urbanist', sans-serif;
+    background: #FFFFFF;
+    opacity: 0.9;
+}
+
+header img{ 
+    width: 270px;
+    height: 60px;
+    /* border: 2px solid black; */
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 60px;
+    /* border: 2px solid black; */
+}
+
+#prev-page{
+    position: relative;
+    left: 50px;
+    top: 65px;
+    width: 35px;
+    height: 35px;
+}
+
+.text-container{
+    width: 40%;
+    position: relative;
+    left: 50px;
+    /* border: 2px solid black; */
+}
+
+.text-container h1{
+    font-size: 68px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #303030;
+}
+
+.text-container p{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #636363;
+}
+
+.form-container{
+    width: 40%;
+    position: relative;
+    right: 50px;
+    /* border: 2px solid black; */
+}
+
+.form-container h2{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #091A7A;
+}
+
+.actions-container{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+    background: linear-gradient(285.06deg, #C4D5FF 0%, rgba(215, 225, 249, 0) 100%), linear-gradient(104.56deg, #D7E3FF 0.71%, rgba(240, 244, 255, 0) 100%);
+    filter: drop-shadow(-1px -1px 1px rgba(0, 0, 0, 0.15)) drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.15));
+    border-radius: 15px;
+    /* border: 2px solid black; */
+}
+
+.actions-container p{
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.heading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    width: 250px;
+    height: 38px;
+    color: #202E85;
+    /* border: 2px solid black; */
+}
+
+.heading img{
+    width: 27px;
+    height: 27px;
+    /* border: 2px solid black; */
+}
+
+.heading p{
+    position: relative;
+    bottom: 7px;
+    font-size: 25px;
+    font-weight: 500;
+    /* border: 2px solid black; */
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    text-align: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    /* width: 250px; */
+    height: 38px;
+    margin-top: 15px;
+    /* border: 2px solid black; */
+}
+
+.buttons p{
+    position: relative;
+    /* font-weight: 600; */
+    bottom: 6px;
+}
+
+.librarian-login{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 180px;
+    height: 42px;
+    background: #4673FC;
+    border-radius: 5px;
+    /* border: 2px solid black;  */
+}
+
+.librarian-login img{
+    width: 25px;
+    height: 25px;
+    /* border: 2px solid black; */
+}
+
+.librarian-login p{
+    position: relative;
+    bottom: 7px;
+    font-size: 20px;
+    color: #FDFCFC;
+    /* border: 2px solid black; */
+}
+
+.librarian-login a{
+    text-decoration: none;
+}
+
+.librarian-login:hover{
+    cursor: pointer;
+    transition: 0.4s;
+    background: #2D60FC;
+}
+
+.student-login{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 180px;
+    height: 42px;
+    border: 2px solid #2D60FC;
+    border-radius: 5px;
+    /* border: 2px solid black;  */
+}
+
+.student-login img{
+    width: 25px;
+    height: 25px;
+    /* border: 2px solid black; */
+}
+
+.student-login p{
+    position: relative;
+    bottom: 7px;
+    font-size: 20px;
+    /* border: 2px solid black; */
+}
+
+.student-login:hover{
+    cursor: pointer;
+    transition: 0.4s;
+    background: rgb(235, 235, 237);
+}
+
+.super-admin-login{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    width: 140px;
+    height: 30px;
+    /* font-weight: 700; */
+    font-size: 14px;
+    margin-top: 10px;
+    border-bottom: 2px dotted #2D60FC;
+    /* border: 2px solid black;  */
+}
+
+.super-admin-login :hover{
+    border-radius: 4px;
+    transition: .7s;
+    /* background-color: aliceblue; */
+    cursor: pointer;
+}
