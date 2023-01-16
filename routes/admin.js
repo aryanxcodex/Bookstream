@@ -3,7 +3,9 @@ const router = express.Router();
 const catchAsync = require("../utils/catchAsync");
 const sendEmail = require("../nodemailer/index");
 const adminController = require("../controllers/admin");
-const passport = require("passport");
+const passport = require("passport"); 
+const waitinglist = require("../models/waitinglist");
+
 
 router.get("/register", adminController.renderRegisterForm);
 
@@ -20,7 +22,8 @@ router.post(
   adminController.login
 );
 
-router.get('/waitingList', catchAsync(adminController.renderWaitingListPage));
+router.get('/waitinglist', catchAsync(adminController.renderWaitingListPage));
 
+router.delete('/waitinglist/:userid/:bookid', catchAsync(adminController.approveRequest));
 
 module.exports = router;

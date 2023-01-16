@@ -53,9 +53,10 @@ module.exports.requestBook = async(req,res) =>{
   const userid = req.user._id;
   const list = await waitingList.insertMany([{user: userid, book: bookid}]);
   if(list) {
-    res.send("made a request");
+    req.flash("success", "Your request was made !");
+    res.redirect("/user/books");
   } else {
-    res.send("nahi hua bhai");
+    res.flash("error", "Error processing request");
+    res.redirect("/user/books");
   }
-};
-
+}

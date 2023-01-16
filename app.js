@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
+const ejsMate = require("ejs-mate");
 const path = require("path");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
@@ -13,9 +14,11 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/users");
+const Admin = require("./models/admin");
 const userRoutes = require("./routes/users");
 const adminRoutes = require("./routes/admin");
 const ExpressError = require('./utils/ExpressError');
+const catchAsync = require("./utils/catchAsync");
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -36,6 +39,7 @@ db.once("open", () => {
   console.log("Database connected");
 });
 
+app.engine('ejs', ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -64,6 +68,26 @@ app.use("/admin", adminRoutes);
 app.get("/", (req, res) => {
   res.render("home");
 });
+
+app.get("/login", (req,res)=>{
+  res.render("login");
+});
+
+app.get("/register", (req,res)=>{
+  res.render("sign-up");
+});
+
+app.get("/onboarding", (req,res)=>{
+  res.render("onboarding");
+});
+
+app.get("/superadmin/login", (req,res)=> {
+  res.render("superadmin/login");
+});
+
+app.post("/register", catchAsync(async (req,res)=>{
+
+}));
 
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page not found", 404));

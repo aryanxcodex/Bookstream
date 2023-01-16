@@ -12,7 +12,10 @@
         <div>
             <p>Student name: <%= l.user.username %> </p>
             <p>Book requested: <%= l.book.title %> </p>
-        </div>
+            <form action="/admin/waitinglist/<%= l.user._id %>/<%= l.book._id %>?_method=DELETE" method="post">
+                <button>Approve Request</button>
+            </form>
+        </div><br><br>
     <% } %>      
 </body>
 </html>
