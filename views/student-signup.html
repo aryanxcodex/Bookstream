@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstream</title>
+    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="student-signup.css">
+</head>
+<body>
+    <header>
+        <a href="home.html"><img src="system-logo.svg" alt="logo"></a>
+    </header>
+    <div class="container">
+        <div class="text-container">
+            <h1>Library Management made easy!</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, atque? Repudiandae quaerat cum vitae voluptates aspernatur sit incidunt sint maxime dolor! Quaerat necessitatibus accusantium possimus quo quas repellat laudantium tempora nisi incidunt aut fuga laboriosam ad tenetur voluptate rem repudiandae accusamus impedit mollitia, consequatur odit ipsam facilis corporis dolorum. Nihil?</p>
+        </div>
+        <a href="onboarding.html"><img src="arrow-left-nav.svg" id="prev-page" alt="Previous-page"></a>
+        <div class="form-container">
+            <!-- <h2>You are just a few steps away from a seamless transition.....</h2> -->
+            <div class="actions-container">
+                <div class="login-form">
+                    <div class="title">
+                        <img src="forward-icon.svg" alt="login">
+                        <p>Just a few steps, and we will be done..</p>
+                    </div>
+                    <hr>
+                    <form action="" id="form">
+                        <div class="details">
+                            <div class="college-id">
+                                <label for="college-id" class="labels">College ID</label>
+                                <input type="text" name="college-id" class="inputs">
+                            </div>
+                            <div class="department">
+                                <label for="user-department" class="labels">Department</label>
+                                <input type="text" name="department" class="inputs">
+                            </div>  
+                        </div>
+                        <div class="name">
+                            <div class="f_name">
+                                <label class="labels" for="fname">First Name</label><br>
+                                <input type="text" name="f_name" class="inputs" id="fname">
+                            </div>
+                            <div class="l_name">
+                                <label for="lname" class="labels">Last Name</label><br>
+                                <input type="text" name="l_name" id="lname" class="inputs">
+                            </div>
+                        </div>
+                        <div class="contacts">
+                            <div class="email">
+                                <label for="email" class="labels">Email</label><br>
+                                <input type="email" name="email" id="email" class="inputs">
+                            </div>
+                            <div class="phone">
+                                <label for="phone" class="labels">Phone</label><br>
+                                <input type="tel" name="phone" id="phone" class="inputs">
+                            </div>
+                        </div>
+                        <div class="credentials">
+                            <div class="username">
+                                <label for="username" class="labels">Username</label><br>
+                                <input type="text" name="username" id="username" class="inputs">
+                            </div>
+                            <div class="password">
+                                <label for="password" class="labels">Password</label><br>
+                                <div class="pass-input">
+                                    <input type="password" name="password" id="password" class="inputs">
+                                    <div class="show-pass">
+                                        <img src="password-eye.svg" id="toggle" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <!-- <button type="submit" id="submit">Submit</button> -->
+                            <input type="submit" value="Next" id="next">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const password = document.getElementById("password"); 
+        const toggle = document.getElementById("toggle");
+
+        document.getElementsByClassName("show-pass")[0].addEventListener("click", function(){
+            if(password.type == "password"){
+                password.type = "text";
+                toggle.src = "close-eye.svg";}
+                else{
+                    password.type = "password";
+                    toggle.src = "password-eye.svg";
+                }
+        });
+    </script>
+</body>
+</html>
