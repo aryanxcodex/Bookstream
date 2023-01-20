@@ -246,12 +246,17 @@ hr{
     align-items: center;
     background-color: #4673FC;
     border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
 }
 
 .show-pass img{
     width: 20px;
     height: 20px;
     /* border: 2px solid black; */
+}
+
+.show-pass img:hover{
+    transform: scale(1.1);
 }
 
 .remember-me{
@@ -285,4 +290,11 @@ hr{
     font-weight: 500;
     cursor: pointer;
     margin-top: 8px;
+}
+
+#submit:hover{
+    background: #0d25ac;
+    transform: scale(1.01);
+    transition: .3s;
+    border: 1px solid #091A7A;
 }
