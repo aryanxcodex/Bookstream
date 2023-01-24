@@ -9,9 +9,9 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
   },
-  role: {
+  dept: {
     type: String,
-    enum: ["admin", "user"],
+    enum: ["BMM", "BSCIT"],
     required: true,
   },
   books_borrowed: [

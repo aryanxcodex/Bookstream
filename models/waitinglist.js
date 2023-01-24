@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const WaitingListSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
-        ref: "Users"
+        ref: "User"
     },
     book: {
         type: Schema.Types.ObjectId,
