@@ -39,17 +39,14 @@ module.exports.approveRequest = async (req,res)=>{
   const bookid = req.params.bookid;
   const userid = req.params.userid;
   const deleteditem = await waitingList.findOneAndDelete({user: userid, book: bookid});
-  console.log("item deleted");
+  // console.log("item deleted");
   res.send("done!");
   const user = await User.findById(userid);
   const book = await Book.findById(bookid);
   const newBook = {
     bookid: bookid
   };
-  const newUser = {
-    userid
-  };
   const updateBookArray = await User.updateOne({_id: userid}, { $push: { books_borrowed: newBook}});
-  const updateUserArray = await Book.updateOne({_id: bookid}, { $push: { users: newUser }});
+  const updateUserArray = await Book.updateOne({_id: bookid}, { $push: { users: userid }});
   sendEmail(user.email, `Your request for the book ${book.title} was approved!`);
 };

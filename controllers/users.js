@@ -4,7 +4,7 @@ const Books = require("../models/books");
 const waitingList = require("../models/waitinglist");
 
 module.exports.renderRegisterForm = (req, res) => {
-  res.render("users/register");
+  res.render("users/student-register");
 };
 
 module.exports.renderLoginForm = (req, res) => {
@@ -12,8 +12,8 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.registerUser = async (req, res) => {
-  const { email, username, password, dept} = req.body;
-  const user = new User({ email, username, dept });
+  const { collegeid, email, username, password, dept, phone} = req.body;
+  const user = new User({ collegeid, phone, email, username, dept });
   const registeredUser = await User.register(user, password);
   if (registeredUser) {
     sendEmail(email);

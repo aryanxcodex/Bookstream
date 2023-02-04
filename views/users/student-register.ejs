@@ -5,38 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstream</title>
-    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="student-signup.css">
+    <link rel="stylesheet" href="/css/student-signup.css">
 </head>
 <body>
     <header>
-        <a href="home.html"><img src="system-logo.svg" alt="logo"></a>
+        <a href="/"><img src="/images/system-logo.svg" alt="logo"></a>
     </header>
     <div class="container">
         <div class="text-container">    
             <h1>Library Management made easy!</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, atque? Repudiandae quaerat cum vitae voluptates aspernatur sit incidunt sint maxime dolor! Quaerat necessitatibus accusantium possimus quo quas repellat laudantium tempora nisi incidunt aut fuga laboriosam ad tenetur voluptate rem repudiandae accusamus impedit mollitia, consequatur odit ipsam facilis corporis dolorum. Nihil?</p>
         </div>
-        <a href="onboarding.html"><img src="arrow-left-nav.svg" id="prev-page" alt="Previous-page"></a>
+        <a href="/onboarding"><img src="/images/arrow-left-nav.svg" id="prev-page" alt="Previous-page"></a>
         <div class="form-container">
             <!-- <h2>You are just a few steps away from a seamless transition.....</h2> -->
             <div class="actions-container">
                 <div class="login-form">
                     <div class="title">
-                        <img src="forward-icon.svg" alt="login">
+                        <img src="/images/forward-icon.svg" alt="login">
                         <p>Just a few steps, and we will be done..</p>
                     </div>
                     <hr>
-                    <form action="" id="form">
+                    <form action="/user/register" id="form" method="post">
                         <div class="details">
                             <div class="college-id">
                                 <label for="college-id" class="labels">College ID</label>
-                                <input type="text" name="college-id" class="inputs">
+                                <input type="text" name="collegeid" class="inputs">
                             </div>
                             <div class="department">
                                 <label for="user-department" class="labels">Department</label>
-                                <input type="text" name="department" class="inputs">
+                                <input type="text" name="dept" class="inputs">
                             </div>  
                         </div>
                         <div class="name">
@@ -69,7 +69,7 @@
                                 <div class="pass-input">
                                     <input type="password" name="password" id="password" class="inputs">
                                     <div class="show-pass">
-                                        <img src="password-eye.svg" id="toggle" alt="">
+                                        <img src="/images/password-eye.svg" id="toggle" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -90,10 +90,10 @@
         document.getElementsByClassName("show-pass")[0].addEventListener("click", function(){
             if(password.type == "password"){
                 password.type = "text";
-                toggle.src = "close-eye.svg";}
+                toggle.src = "/images/close-eye.svg";}
                 else{
                     password.type = "password";
-                    toggle.src = "password-eye.svg";
+                    toggle.src = "/images/password-eye.svg";
                 }
         });
     </script>
