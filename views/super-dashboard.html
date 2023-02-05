@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="super-dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
 </head>
     <body>
         <header>
@@ -20,13 +21,30 @@
         <hr id="break">
         <div class="main">
             <div class="stats">
-                <div class="div1"></div>
-                <div class="div2"></div>
-                <div class="div3"></div>
+                <div class="div1">
+                    <div class="stat">
+                        <h1>11</h1>
+                        <h4>Total Librarians</h4>
+                    </div>
+                </div>
+                <div class="div2">
+                    <div class="stat">
+                        <h1>110</h1>
+                        <h4>Total Students</h4>
+                    </div>
+                </div>
+                <div class="div3">
+                    <div class="stat">
+                        <h1>1100</h1>
+                        <div class="div">
+                        <h4>Total Overdues</h4><a href="#"><img src="arrow-right-white.svg" alt="right-arrow-icon"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- <hr id="division"> -->
             <div class="actions">
-                <a href="#" id="actions"><div class="manage-librarians">
+                <a href="manage-librarians.html" id="actions"><div class="manage-librarians">
                     <img src="book-icon.svg" alt="book-icon">
                     <p>Manage Librarians</p>
                 </div></a>
@@ -45,6 +63,73 @@
                         <img src="right-arrow-icon.svg" alt="right-arrow-icon">
                     </a>
                 </div>
+                <div class="data-tab">    
+                    This includes a table, which will be edited later.
+                    <!-- <div class="relative overflow-x-auto bg-#050708">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bg-blue-900" >
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Product name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Color
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Category
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Price
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        Apple MacBook Pro 17"
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        Sliver
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        Laptop
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        Microsoft Surface Pro
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        White
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        Laptop PC
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $1999
+                                    </td>
+                                </tr>
+                                <tr class="bg-white dark:bg-gray-800">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        Magic Mouse 2
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        Black
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        Accessories
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $99
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+                </div>
             </div>
             <div class="details">
                 <div class="title">
@@ -54,7 +139,11 @@
                         <img src="right-arrow-icon.svg" alt="right-arrow-icon">
                     </a>
                 </div>
+                <div class="data-tab">
+                    This includes a table, which will be edited later.
+                </div>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     </body>
 </html>

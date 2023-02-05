@@ -55,11 +55,11 @@ header h1{
     font-weight: 600;
     /* border: 2px solid black; */
 }
-/* 
+
 .acc_settings:hover{
     background-color: #4874FF;
     transition: 0.2s;
-} */
+}
 
 .main{
     display: flex;
@@ -67,7 +67,7 @@ header h1{
     align-items: flex-start;
     height: 250px;
     margin-top: 20px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .stats{
@@ -90,6 +90,40 @@ header h1{
     padding: 10px;
     border-radius: 15px;
     background-color: #436BE6;
+    /* border: 2px solid black; */
+}
+
+.div1 h1, .div2 h1, .div3 h1{
+    font-size: 80px;
+    font-weight: 600;
+    color: #FFFFFF;
+    padding: 0;
+    display: inline-block;
+    /* border: 2px solid black; */
+}
+
+.div1 h4, .div2 h4{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: relative;
+    bottom: 10px;
+    /* border: 2px solid black; */
+}
+
+.div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: relative;
+    bottom: 10px;
+    /* border: 2px solid black; */
+    /* height: 100%; */
     /* border: 2px solid black; */
 }
 
@@ -149,7 +183,8 @@ header h1{
     width: 100%;
     height: 100%;
     margin-top: 20px;
-    border: 2px solid black;
+    padding: 8px;
+    /* border: 2px solid black; */
 }
 
 /* Librarian Data Table */
@@ -157,11 +192,15 @@ header h1{
 .details{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 50%;
     height: 100%;
-    border: 2px solid black;
+    margin: 0px 15px;
+    /* padding-top: 10px; */
+    /* background-color: #E7EFFF; */
+    /* border-radius: 15px; */
+    /* border: 2px solid black; */
 }
 
 .title{
@@ -169,9 +208,17 @@ header h1{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    height: 20%;
-    border: 2px solid black;
+    width: 100%;
+    height: 10%;
+    padding: 0px 15px;
+    /* border: 2px solid black; */
+}
+
+.title h2{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000000;
+    /* border: 2px solid black; */
 }
 
 .expand{
@@ -179,6 +226,21 @@ header h1{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
-    border: 2px solid black;
+    text-decoration: none;
+    color: #7C7C7C;
+    width: 20%;
+    /* border: 2px solid black; */
+}
+
+
+.data-tab{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    background-color: #E7EFFF;
+    border-radius: 15px;
+    /* border: 2px solid black; */
 }
