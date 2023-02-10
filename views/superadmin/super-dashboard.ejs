@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstream</title>
-    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="super-dashboard.css">
+    <link rel="stylesheet" href="/css/super-dashboard.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
 </head>
     <body>
         <header>
             <h1>Welcome Super Admin!</h1>
             <div class="acc_settings">
-                <img src="setting-icon.svg" alt="settings">
+                <img src="/images/setting-icon.svg" alt="settings">
                 <a href="#">Account Settings</a>
             </div>
         </header>
@@ -23,13 +23,13 @@
             <div class="stats">
                 <div class="div1">
                     <div class="stat">
-                        <h1>11</h1>
+                        <h1><%= numOfAdmins %></h1>
                         <h4>Total Librarians</h4>
                     </div>
                 </div>
                 <div class="div2">
                     <div class="stat">
-                        <h1>110</h1>
+                        <h1><%= numOfUsers %></h1>
                         <h4>Total Students</h4>
                     </div>
                 </div>
@@ -37,19 +37,19 @@
                     <div class="stat">
                         <h1>1100</h1>
                         <div class="div">
-                        <h4>Total Overdues</h4><a href="#"><img src="arrow-right-white.svg" alt="right-arrow-icon"></a>
+                        <h4>Total Overdues</h4><a href="#"><img src="/images/arrow-right-white.svg" alt="right-arrow-icon"></a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- <hr id="division"> -->
             <div class="actions">
-                <a href="manage-librarians.html" id="actions"><div class="manage-librarians">
-                    <img src="book-icon.svg" alt="book-icon">
+                <a href="/superadmin/dashboard/manage-librarians" id="actions"><div class="manage-librarians">
+                    <img src="/images/book-icon.svg" alt="book-icon">
                     <p>Manage Librarians</p>
                 </div></a>
                 <a href="#" id="actions"><div class="manage-students">
-                    <img src="student-icon.svg" alt="book-icon">
+                    <img src="/images/student-icon.svg" alt="book-icon">
                     <p>Manage Students</p>
                 </div></a>
             </div>
@@ -60,7 +60,7 @@
                     <h2>Librarians</h2>
                     <a href="#" class="expand">
                         <p>Detailed List</p>
-                        <img src="right-arrow-icon.svg" alt="right-arrow-icon">
+                        <img src="/images/right-arrow-icon.svg" alt="right-arrow-icon">
                     </a>
                 </div>
                 <div class="data-tab">    
@@ -136,7 +136,7 @@
                     <h2>Students</h2>
                     <a href="#" class="expand">
                         <p>Detailed List</p>
-                        <img src="right-arrow-icon.svg" alt="right-arrow-icon">
+                        <img src="/images/right-arrow-icon.svg" alt="right-arrow-icon">
                     </a>
                 </div>
                 <div class="data-tab">

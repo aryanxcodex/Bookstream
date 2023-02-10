@@ -19,6 +19,7 @@ const userRoutes = require("./routes/users");
 const adminRoutes = require("./routes/admin");
 const ExpressError = require('./utils/ExpressError');
 const catchAsync = require("./utils/catchAsync");
+const superadminRoutes = require("./routes/superadmin");
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -64,6 +65,7 @@ app.use((req, res, next) => {
 
 app.use("/user", userRoutes);
 app.use("/admin", adminRoutes);
+app.use("/superadmin", superadminRoutes);
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -80,14 +82,6 @@ app.get("/register", (req,res)=>{
 app.get("/onboarding", (req,res)=>{
   res.render("onboarding");
 });
-
-app.get("/superadmin/login", (req,res)=> {
-  res.render("superadmin/login");
-});
-
-app.post("/register", catchAsync(async (req,res)=>{
-
-}));
 
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page not found", 404));

@@ -8,17 +8,6 @@ module.exports.renderRegisterForm = (req, res) => {
   res.render("admin/register");
 };
 
-module.exports.registerAdmin = async (req, res) => {
-  const { email, username, password, dept } = req.body;
-  const admin = new Admin({ email, username, dept });
-  const registeredAdmin = await Admin.register(admin, password);
-  if (registeredAdmin) {
-    sendEmail(email, `You are now an admin of ${dept} Department`);
-  }
-  req.flash("success", "Welcome to bookstream");
-  res.redirect("/");
-};
-
 module.exports.renderLoginForm = (req, res) => {
   res.render("admin/login");
 };
@@ -40,7 +29,6 @@ module.exports.approveRequest = async (req,res)=>{
   const userid = req.params.userid;
   const deleteditem = await waitingList.findOneAndDelete({user: userid, book: bookid});
   // console.log("item deleted");
-  res.send("done!");
   const user = await User.findById(userid);
   const book = await Book.findById(bookid);
   const newBook = {
