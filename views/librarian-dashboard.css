@@ -1,0 +1,366 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    /* padding: 30px 40px; */
+    display: flex;
+    flex-direction: row;
+    font-family: 'Urbanist', sans-serif;
+    background: #FFFFFF;
+    opacity: 0.9;
+}
+
+.side-pane{
+    width: 16%;
+    height: 100%;
+    background-color: #2F2F2F;
+    /* border: 2px solid black; */
+}
+
+.main-cont{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border: 2px solid black;
+}
+
+.logo{
+    width: 100%;
+    height: 16%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 8px ;
+    /* border: 2px solid black; */
+}
+
+.nav-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    height: 50%;
+    padding: 0px 10px;
+    /* margin: 20px 0px; */
+    /* border: 2px solid black; */
+}
+
+.nav-item a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 40px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 300;
+    /* border: 2px solid black; */
+}
+
+.nav-item a:hover{
+    transition: .2s;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: #1b1a1a;
+}
+
+.nav-item img{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+}
+
+.title{
+    font-size: 3rem;
+    font-weight: 600;
+    color: #2B2B2B;
+    padding-left: 20px;
+}
+
+.acc_settings{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 6px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 18%;
+    cursor: pointer;
+    /* border: 2px solid black; */
+}
+
+.acc_settings:hover{
+    transition: .2s;
+    /* font-weight: 600; */
+    border-radius: 5px;
+    background-color: #d5d5d5;
+}
+
+.acc_settings img{
+    width: 30px;
+    height: 30px;
+    /* border-radius: 50%; */
+    /* border: 2px solid black; */
+}
+
+hr{
+    width: 100%;
+    height: 5px;
+}
+
+
+.stats{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    /* height: 220px; */
+    padding: 10px;
+    /* border: 2px solid black; */
+}
+
+.div1, .div2, .div3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:30%;
+    height: 140px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #436BE6;
+    /* border: 2px solid black; */
+}
+
+.div1 h1, .div2 h1, .div3 h1{
+    font-size: 80px;
+    font-weight: 600;
+    color: #FFFFFF;
+    padding: 0;
+    display: inline-block;
+    /* border: 2px solid black; */
+}
+
+.div1 h4, .div2 h4{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: relative;
+    bottom: 10px;
+    /* border: 2px solid black; */
+}
+
+.div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: relative;
+    bottom: 10px;
+    /* border: 2px solid black; */
+    /* height: 100%; */
+    /* border: 2px solid black; */
+}
+
+.actions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    /* border: 2px solid black; */
+}
+
+.manage-librarians, .manage-students{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* padding: 10px; */
+    border-radius: 8px;
+    /* margin: 8px 20px;  */
+    background-color: #436BE6;
+    /* border: 2px solid black; */
+}
+
+#actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 25%;
+    /* padding: 10px; */
+    border-radius: 8px;
+    margin: 8px 20px; 
+    background-color: #436BE6;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 400;
+    /* border: 2px solid black; */
+}
+
+.manage-librarians img, .manage-students img{
+    width: 25px;
+    height: 25px;
+    /* border-radius: 50%; */
+    /* border: 2px solid black; */
+}
+
+.users{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    padding: 8px;
+    /* border: 2px solid black; */
+}
+
+/* Librarian Data Table */
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    margin: 0px 15px;
+    /* padding-top: 10px; */
+    /* background-color: #E7EFFF; */
+    /* border-radius: 15px; */
+    /* border: 2px solid black; */
+}
+
+.data-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    padding: 0px 15px;
+    /* border: 2px solid black; */
+}
+
+
+.data-title h2{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000000;
+    /* border: 2px solid black; */
+}
+
+
+.expand{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: #7C7C7C;
+    width: 20%;
+    /* border: 2px solid black; */
+}
+/* 
+.expand p{
+    font-size: 1.1rem;
+    font-weight: 400;
+    width: 20px;
+    border: 2px solid black;
+} */
+
+.users{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    padding: 8px;
+    /* border: 2px solid black; */
+}
+
+.data-tab{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+    height: 350px;
+    /* padding: 20px 0px; */
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #E7EFFF;
+    border-radius: 15px;
+    /* border: 2px solid black; */
+}
+
+table.blueTable {
+    width: 95%;
+    height: 90%;
+    text-align: left;
+    position: relative;
+    top: 10px;
+    /* border: 2px solid black; */
+    /* overflow-y: auto; */
+    /* border-collapse: collapse; */
+  }
+
+  table.blueTable td, table.blueTable th {
+    padding: 4px 20px;
+    /* font-weight: 600; */
+    /* border: 2px solid black; */
+  }
+
+  table.blueTable th{
+    font-weight: 400;
+  }
+
+  table.blueTable tbody td {
+    font-size: 17px;
+  }
+
+  table.blueTable thead th {
+    font-size: 25px;
+    position: sticky;
+    font-weight: bold;
+  }
+  table.blueTable tfoot td {
+    font-size: 20px;
+  }
+
+  .tab-head{
+    position: sticky;
+  }
