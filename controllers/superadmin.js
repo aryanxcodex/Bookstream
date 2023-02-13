@@ -13,7 +13,9 @@ module.exports.login = (req, res) => {
 module.exports.renderdashboard = async (req,res)=>{
     const numOfAdmins = await Admin.countDocuments({});
     const numOfUsers = await User.countDocuments({});
-    res.render("superadmin/super-dashboard", { numOfAdmins, numOfUsers });
+    const librarians = await Admin.find({});
+    const students = await User.find({});
+    res.render("superadmin/super-dashboard", { numOfAdmins, numOfUsers, librarians, students });
 };
 
 module.exports.rendermanagelibrarians = (req,res)=> {

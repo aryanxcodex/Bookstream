@@ -36,7 +36,10 @@ module.exports.renderDashboard = async (req,res)=>{
 
 
 module.exports.renderBooksPage = async (req,res)=>{
-  const books = await Books.find({});
+  const { title } = req.body;
+  const filterObj = {};
+  filterObj.title = new RegExp(title, 'i');
+  const books = await Books.find(filterObj);
   res.render('users/books', { books });
 };
 
@@ -60,3 +63,4 @@ module.exports.requestBook = async(req,res) =>{
     res.redirect("/user/books");
   }
 }
+

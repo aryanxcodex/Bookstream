@@ -1,149 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstream</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/super-dashboard.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
 </head>
-    <body>
-        <header>
-            <h1>Welcome Super Admin!</h1>
-            <div class="acc_settings">
-                <img src="/images/setting-icon.svg" alt="settings">
-                <a href="#">Account Settings</a>
-            </div>
-        </header>
-        <hr id="break">
-        <div class="main">
-            <div class="stats">
-                <div class="div1">
-                    <div class="stat">
-                        <h1><%= numOfAdmins %></h1>
-                        <h4>Total Librarians</h4>
-                    </div>
-                </div>
-                <div class="div2">
-                    <div class="stat">
-                        <h1><%= numOfUsers %></h1>
-                        <h4>Total Students</h4>
-                    </div>
-                </div>
-                <div class="div3">
-                    <div class="stat">
-                        <h1>1100</h1>
-                        <div class="div">
-                        <h4>Total Overdues</h4><a href="#"><img src="/images/arrow-right-white.svg" alt="right-arrow-icon"></a>
-                        </div>
-                    </div>
+
+<body>
+    <header>
+        <h1>Welcome Super Admin!</h1>
+        <div class="acc_settings">
+            <img src="/images/setting-icon.svg" alt="settings">
+            <a href="#">Account Settings</a>
+        </div>
+    </header>
+    <hr id="break">
+    <div class="main">
+        <div class="stats">
+            <div class="div1">
+                <div class="stat">
+                    <h1>
+                        <%= numOfAdmins %>
+                    </h1>
+                    <h4>Total Librarians</h4>
                 </div>
             </div>
-            <!-- <hr id="division"> -->
-            <div class="actions">
-                <a href="/superadmin/dashboard/manage-librarians" id="actions"><div class="manage-librarians">
+            <div class="div2">
+                <div class="stat">
+                    <h1>
+                        <%= numOfUsers %>
+                    </h1>
+                    <h4>Total Students</h4>
+                </div>
+            </div>
+            <div class="div3">
+                <div class="stat">
+                    <h1>1100</h1>
+                    <div class="div">
+                        <h4>Total Overdues</h4><a href="#"><img src="/images/arrow-right-white.svg"
+                                alt="right-arrow-icon"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <hr id="division"> -->
+        <div class="actions">
+            <a href="/superadmin/dashboard/manage-librarians" id="actions">
+                <div class="manage-librarians">
                     <img src="/images/book-icon.svg" alt="book-icon">
                     <p>Manage Librarians</p>
-                </div></a>
-                <a href="#" id="actions"><div class="manage-students">
+                </div>
+            </a>
+            <a href="#" id="actions">
+                <div class="manage-students">
                     <img src="/images/student-icon.svg" alt="book-icon">
                     <p>Manage Students</p>
-                </div></a>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="users">
+        <div class="details">
+            <div class="title">
+                <h2>Librarians</h2>
+                <a href="#" class="expand">
+                    <p>Detailed List</p>
+                    <img src="/images/right-arrow-icon.svg" alt="right-arrow-icon">
+                </a>
+            </div>
+            <div class="data-tab">
+                <table class="blueTable">
+                    <thead>
+                        <div class="tab-head">
+                            <tr>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>E-mail</th>
+                            </tr>
+                        </div>
+                    </thead>
+                    <tbody>
+                        <% for(librarian of librarians) { %>
+                            <tr>
+                                <td><%= librarian.username %></td>
+                                <td><%= librarian.dept %></td>
+                                <td><%= librarian.email %></td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                    </tr>
+                </table>
             </div>
         </div>
-        <div class="users">
-            <div class="details">
-                <div class="title">
-                    <h2>Librarians</h2>
-                    <a href="#" class="expand">
-                        <p>Detailed List</p>
-                        <img src="/images/right-arrow-icon.svg" alt="right-arrow-icon">
-                    </a>
-                </div>
-                <div class="data-tab">    
-                    This includes a table, which will be edited later.
-                    <!-- <div class="relative overflow-x-auto bg-#050708">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bg-blue-900" >
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3">
-                                        Product name
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Color
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Category
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Price
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Sliver
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Laptop
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Microsoft Surface Pro
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        White
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Laptop PC
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $1999
-                                    </td>
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Magic Mouse 2
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Black
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Accessories
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $99
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div> -->
-                </div>
+        <div class="details">
+            <div class="title">
+                <h2>Students</h2>
+                <a href="#" class="expand">
+                    <p>Detailed List</p>
+                    <img src="/images/right-arrow-icon.svg" alt="right-arrow-icon">
+                </a>
             </div>
-            <div class="details">
-                <div class="title">
-                    <h2>Students</h2>
-                    <a href="#" class="expand">
-                        <p>Detailed List</p>
-                        <img src="/images/right-arrow-icon.svg" alt="right-arrow-icon">
-                    </a>
-                </div>
-                <div class="data-tab">
-                    This includes a table, which will be edited later.
-                </div>
+            <div class="data-tab">
+                <table class="blueTable">
+                    <thead>
+                        <div class="tab-head">
+                            <tr>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Books</th>
+                                <th>E-mail</th>
+                            </tr>
+                        </div>
+                    </thead>
+                    <tbody>
+                        <% for(student of students) { %>
+                            <% let book = student.books_borrowed.length; %>
+                            <tr>
+                                <td><%= student.username %></td>
+                                <td><%= student.dept %></td>
+                                <td><%= book %></td>
+                                <td><%= student.email %></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                    </tr>
+                </table>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-    </body>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+</body>
+
 </html>
