@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstream</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/librarian-dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="side-pane">
+        <div class="logo">
+            <a href="#"><img src="/images/logo-white.png" alt=""></a>
+        </div>
+        <div class="nav">
+            <div class="nav-item">
+                <a href="librarian-dashboard.html"><img src="/images/dashboard-icon.svg" alt="">
+                    <p> Dashboard</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-books.html"><img src="/images/book-icon.svg" alt="">
+                    <p> Manage Books</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="overdue-books.html"><img src="/images/clock-icon.svg" alt="">
+                    <p> Overdue Books</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-students.html"><img src="/images/student-icon.svg" alt="">
+                    <p> Manage Students</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-requests.html"><img src="/images/location-icon.svg" alt="">
+                    <p> Manage Sections</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-issues.html"><img src="/images/book-icon.svg" alt="">
+                    <p> Borrow requests</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="main-cont">
+        <div class="header">
+            <div class="title">
+                <h1>Dashboard</h1>
+            </div>
+            <div class="acc_settings">
+                <img src="/images/setting-icon.svg" alt="settings">
+                <div>Account Settings</div>
+            </div>
+        </div>
+        <hr>
+        <div class="stats">
+            <div class="div1">
+                <div class="stat">
+                    <h1>
+                        <%= numOfBooks %>
+                    </h1>
+                    <h4>Total Books</h4>
+                </div>
+            </div>
+            <div class="div2">
+                <div class="stat">
+                    <h1>
+                        <%= numOfUsers %>
+                    </h1>
+                    <h4>Total Students</h4>
+                </div>
+            </div>
+            <div class="div3">
+                <div class="stat">
+                    <h1>1100</h1>
+                    <div class="div">
+                        <h4>Total Overdues</h4><a href="#"><img src="/images/arrow-right-white.svg"
+                                alt="right-arrow-icon"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="users">
+            <div class="details">
+                <div class="data-title">
+                    <h2>Books Borrowed</h2>
+                    <a href="manage-librarians.html" class="expand">
+                        <p>Detailed List</p>
+                        <img src="/images/right-arrow-icon.svg" alt="right-arrow-icon">
+                    </a>
+                </div>
+                <div class="data-tab">
+                    <table class="blueTable">
+                        <thead>
+                            <div class="tab-head">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Author</th>
+                                    <th>Borrowed by</th>
+                                </tr>
+                            </div>
+                        </thead>
+                        <tbody>
+                            <% for(b of borrowedbooks) { %>
+                                <% if(b.users.length) { %>
+                                <tr>
+                                    <td><%= b.title %></td>
+                                    <td><%= b.authors[0] %></td>
+                                    <td><%= b.users[0].username %></td>
+                                </tr>
+                            <%  } %>
+                            <% } %>
+                        </tbody>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="details">
+                <div class="data-title">
+                    <h2>Blacklisted students</h2>
+                    <a href="#" class="expand">
+                        <p>Detailed List</p>
+                        <img src="/images/right-arrow-icon.svg" alt="right-arrow-icon">
+                    </a>
+                </div>
+                <div class="data-tab">
+                    <table class="blueTable">
+                        <thead>
+                            <div class="tab-head">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>E-mail</th>
+                                </tr>
+                            </div>
+                        </thead>
+                        <tbody>
+                            <% for(blacklist of blacklists) { %>
+                                <tr>
+                                    <td><%= blacklist.username %></td>
+                                    <td><%= blacklist.dept %></td>
+                                    <td><%= blacklist.email %></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

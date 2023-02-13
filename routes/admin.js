@@ -26,4 +26,6 @@ router.get('/waitinglist', catchAsync(adminController.renderWaitingListPage));
 
 router.delete('/waitinglist/:userid/:bookid', catchAsync(adminController.approveRequest));
 
+router.get('/dashboard', adminController.renderdashboard);
+
 module.exports = router;
