@@ -7,8 +7,9 @@
     <title>Bookstream</title>
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="manage-books.css">
+    <link rel="stylesheet" href="manage-request.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="side-pane">
@@ -29,7 +30,7 @@
                 <a href="manage-students.html"><img src="student-icon.svg" alt=""><p> Manage Students</p></a>
             </div>
             <div class="nav-item">
-                <a href="manage-requests.html"><img src="location-icon.svg" alt=""><p> Manage Sections</p></a>
+                <a href="manage-sections.html"><img src="location-icon.svg" alt=""><p> Manage Sections</p></a>
             </div>
             <div class="nav-item">
                 <a href="manage-requests.html"><img src="book-icon.svg" alt=""><p> Borrow requests</p></a>
@@ -39,7 +40,7 @@
     <div class="main-cont">
         <div class="header">
             <div class="title">
-                <h1>Manage your books here</h1>
+                <h1>Manage book borrow requests</h1>
             </div>
             <div class="acc_settings">
                 <img src="setting-icon.svg" alt="settings">
@@ -47,45 +48,60 @@
             </div>
         </div>
         <hr>
-        <div class="search-book">
-            <h1>Search book by title here</h1>
-            <div class="search-bar">
-                <input type="text" placeholder="Search book by title">
-                <button>Search</button>
-            </div>
-        </div>
-        <div class="book-data">
-            <div class="data-title">
-                <h1>Available books</h1>
-                <a href="add-book.html"></a><div class="new-book">
-                    <img src="add-square.svg" alt=""><p>Add new book</p>
-                </div></a>
-            </div>
+        <div class="requests">
+            <h1>Borrow requests</h1>
             <div class="data-tab">
                 <table class="blueTable">
                     <thead>
                     <div class="tab-head">
                         <tr >
-                        <th>Name</th>
+                        <th>Student Name</th>
+                        <th>Book title</th>
                         <th>Author</th>
-                        <th>Category</th>
-                        <th>Stock</th>
+                        <th>Class</th>
+                        <th>Department</th>
+                        <th>Actions</th>
                         </tr>
                     </div>
                     </thead>
                     <tbody>
                     <tr>
-                    <td>Lorem ipsum dolor sit amet.</td><td>Super Admin</td><td>ganeshgajelly66@gmail.com</td></tr>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>Death</td>
+                    <td>Sadhguru</td>
+                    <td>SYBSCIT</td>
+                    <td>BSCIT</td>
+                    <td id="actions"><i class="fa-regular fa-circle-check"></i><i class="fa-solid fa-xmark"></i></td>
+                    </tr>
                     <tr>
-                    <td>Lorem, ipsum dolor.</td><td>Super Admin</td><td>aryansingh@gmail.com</td></tr>
-                    <td>lorem</td><td>Super Admin</td><td>aryansingh@gmail.com</td></tr>
-                    <td>Lorem ipsum dolor sit amet consectetur.</td><td>Super Admin</td><td>aryansingh@gmail.com</td></tr>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>Death</td>
+                    <td>Sadhguru</td>
+                    <td>SYBSCIT</td>
+                    <td>BSCIT</td>
+                    <td id="actions"><i class="fa-regular fa-circle-check"></i><i class="fa-solid fa-xmark"></i></td>
+                    </tr>
                     <tr>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>Death</td>
+                    <td>Sadhguru</td>
+                    <td>SYBSCIT</td>
+                    <td>BSCIT</td>
+                    <td id="actions"><i class="fa-regular fa-circle-check"></i><i class="fa-solid fa-xmark"></i></td>
+                    </tr>
+                    <tr>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>Death</td>
+                    <td>Sadhguru</td>
+                    <td>SYBSCIT</td>
+                    <td>BSCIT</td>
+                    <td id="actions"><i class="fa-regular fa-circle-check"></i><i class="fa-solid fa-xmark"></i></td>
+                    </tr>
                     </tbody>
                     </tr>
-                    </table>
+                </table>
             </div>
         </div>
     </div>
-</body>
-</html>
+    </body>
+    </html>
