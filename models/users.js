@@ -4,6 +4,10 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const passport = require('passport');
 
 const UserSchema = new Schema({
+  collegeid: {
+    type: Number,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -13,6 +17,9 @@ const UserSchema = new Schema({
     type: String,
     enum: ["BMM", "BSCIT"],
     required: true,
+  },
+  phone: {
+    type: Number
   },
   books_borrowed: [
     {

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstream</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/manage-books.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body> 
+    <div class="side-pane">
+        <div class="logo">
+            <a href="#"><img src="/images/logo-white.png" alt=""></a>
+        </div>
+        <div class="nav">
+            <div class="nav-item">
+                <a href="/admin/dashboard"><img src="/images/dashboard-icon.svg" alt="">
+                    <p> Dashboard</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-books.html"><img src="/images/book-icon.svg" alt="">
+                    <p> Manage Books</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="overdue-books.html"><img src="/images/clock-icon.svg" alt="">
+                    <p> Overdue Books</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-students.html"><img src="/images/student-icon.svg" alt="">
+                    <p> Manage Students</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-requests.html"><img src="/images/location-icon.svg" alt="">
+                    <p> Manage Sections</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-issues.html"><img src="/images/book-icon.svg" alt="">
+                    <p> Borrow requests</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="main-cont">
+        <div class="header">
+            <div class="title">
+                <h1>Manage your books here</h1>
+            </div>
+            <div class="acc_settings">
+                <img src="/images/setting-icon.svg" alt="settings">
+                <div>Account Settings</div>
+            </div>
+        </div>
+        <hr>
+        <div class="search-book">
+            <h1>Search book by title here</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search book by title">
+                <button>Search</button>
+            </div>
+        </div>
+        <div class="book-data">
+            <div class="data-title">
+                <h1>Available books</h1>
+                <div class="new-book">
+                    <img src="/images/add-square.svg" alt="">
+                    <button id="button1">Add new book</button>
+                </div>
+            </div>
+            <!-- The Modal -->
+            <div id="myaddModal" class="addmodal">
+
+                <!-- Modal content -->
+                <div class="modal-content-add">
+                    <div class="add-book-container-head">
+                        <h2>Add new books</h2>
+                        <span class="close">&times;</span>
+                    </div>
+                    <form action="/admin/addbook" method="post" class="insert-book">
+                        <div><input type="text" placeholder="ISBN" name="ISBN" required class="insert-input">
+                        </div>
+                        <div><input type="text" placeholder="Book Name" name="title" required class="insert-input">
+                        </div>
+                        <div><input type="text" placeholder="Author" name="author" required class="insert-input"></div>
+                        <div><input type="text" placeholder="Category" name="category" required class="insert-input">
+                        </div>
+                        <input type="submit" name="Submit" id="submit-insert-book">
+                    </form>
+                </div>
+            </div>
+            <%- include('../layouts/flash') %>
+            <div class="data-tab">
+                <table class="blueTable">
+                    <thead>
+                        <div class="tab-head">
+                            <tr>
+                                <th>Name</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Stock</th>
+                            </tr>
+                        </div>
+                    </thead>
+                    <tbody>
+                        <% for(book of books) { %>
+                            <tr>
+                                <td>
+                                    <%= book.title %>
+                                </td>
+                                <td>
+                                    <%= book.authors[0] %>
+                                </td>
+                                <td>
+                                    <%= book.category[0] %>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get the addmodal
+        var addmodal = document.getElementById("myaddModal");
+
+        // Get the button that opens the modal
+        var btn1 = document.getElementById("button1");
+
+        // Get the <span> element that closes the modal
+        var span1 = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn1.onclick = function () {
+            addmodal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span1.onclick = function () {
+            addmodal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event1) {
+            if (event1.target == addmodal) {
+                addmodal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstream</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/manage-librarians.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+</head>
+    <body>
+        <header>
+            <div class="page-title">
+            <a href="/superadmin/dashboard"><img src="/images/arrow-left.svg" alt="arrow-left"></a>
+            <h1>Welcome Super Admin!</h1></div>
+            <div class="acc_settings">
+                <img src="/images/setting-icon.svg" alt="settings">
+                <a href="#">Account Settings</a>
+            </div>
+        </header>
+        <hr id="break">
+        <div class="main">
+            <div class="title">
+                <h1>Librarians List</h1>
+                <a href="/superadmin/dashboard/librarian-form" style="text-decoration: none;">
+                    <div class="add-librarian">
+                        <img src="/images/add-square.svg" alt="add-librarian">
+                        <p>Add new librarian</p>
+                    </div>
+                </a>
+            </div>
+            <div class="data-tab">
+                <table class="blueTable">
+                    <thead>
+                        <div class="tab-head">
+                            <tr>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>E-mail</th>
+                            </tr>
+                        </div>
+                    </thead>
+                    <tbody>
+                        <% for(librarian of librarians) { %>
+                            <tr>
+                                <td><%= librarian.username %></td>
+                                <td><%= librarian.dept %></td>
+                                <td><%= librarian.email %></td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

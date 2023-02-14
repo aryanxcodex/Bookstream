@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     width: 100vw;
     height: 100vh;
     padding: 30px 40px;
@@ -16,7 +16,7 @@ body{
 }
 
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,14 +24,14 @@ header{
     /* border: 2px solid black; */
 }
 
-header h1{
+header h1 {
     font-size: 2.5rem;
     font-weight: 500;
     color: #000000;
     /* border: 2px solid black; */
 }
 
-.acc_settings{
+.acc_settings {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -41,14 +41,14 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.acc_settings img{
+.acc_settings img {
     width: 35px;
     height: 35px;
     /* border-radius: 50%; */
     /* border: 2px solid black; */
 }
 
-.acc_settings a{
+.acc_settings a {
     text-decoration: none;
     color: #5A5A5A;
     font-size: 1.3rem;
@@ -56,12 +56,12 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.acc_settings:hover{
+.acc_settings:hover {
     background-color: #4874FF;
     transition: 0.2s;
 }
 
-.main{
+.main {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -70,7 +70,7 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.stats{
+.stats {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -81,11 +81,13 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.div1, .div2, .div3{
+.div1,
+.div2,
+.div3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width:30%;
+    width: 30%;
     height: 140px;
     padding: 10px;
     border-radius: 15px;
@@ -93,7 +95,9 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.div1 h1, .div2 h1, .div3 h1{
+.div1 h1,
+.div2 h1,
+.div3 h1 {
     font-size: 80px;
     font-weight: 600;
     color: #FFFFFF;
@@ -102,7 +106,8 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.div1 h4, .div2 h4{
+.div1 h4,
+.div2 h4 {
     font-size: 1.2rem;
     font-weight: 500;
     color: #FFFFFF;
@@ -111,7 +116,7 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.div{
+.div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -127,7 +132,7 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.actions{
+.actions {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,7 +141,8 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.manage-librarians, .manage-students{
+.manage-librarians,
+.manage-students {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -150,7 +156,7 @@ header h1{
     /* border: 2px solid black; */
 }
 
-#actions{
+#actions {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -159,7 +165,7 @@ header h1{
     height: 25%;
     /* padding: 10px; */
     border-radius: 8px;
-    margin: 8px 20px; 
+    margin: 8px 20px;
     background-color: #436BE6;
     text-decoration: none;
     color: #FFFFFF;
@@ -168,14 +174,15 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.manage-librarians img, .manage-students img{
+.manage-librarians img,
+.manage-students img {
     width: 25px;
     height: 25px;
     /* border-radius: 50%; */
     /* border: 2px solid black; */
 }
 
-.users{
+.users {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -189,7 +196,7 @@ header h1{
 
 /* Librarian Data Table */
 
-.details{
+.details {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -203,7 +210,7 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.title{
+.title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -214,14 +221,14 @@ header h1{
     /* border: 2px solid black; */
 }
 
-.title h2{
+.title h2 {
     font-size: 1.3rem;
     font-weight: 600;
     color: #000000;
     /* border: 2px solid black; */
 }
 
-.expand{
+.expand {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -233,14 +240,56 @@ header h1{
 }
 
 
-.data-tab{
+.data-tab {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: 90%;
+    height: 350px;
+    /* padding: 20px 0px; */
+    overflow-y: auto;
     background-color: #E7EFFF;
     border-radius: 15px;
     /* border: 2px solid black; */
+}
+
+table.blueTable {
+    width: 95%;
+    height: 90%;
+    text-align: left;
+    position: relative;
+    top: 10px;
+    /* border: 2px solid black; */
+    /* overflow-y: auto; */
+    /* border-collapse: collapse; */
+}
+
+table.blueTable td,
+table.blueTable th {
+    padding: 4px 20px;
+    /* font-weight: 600; */
+    /* border: 2px solid black; */
+}
+
+table.blueTable th {
+    font-weight: 400;
+}
+
+table.blueTable tbody td {
+    font-size: 17px;
+}
+
+table.blueTable thead th {
+    font-size: 25px;
+    position: sticky;
+    font-weight: bold;
+}
+
+table.blueTable tfoot td {
+    font-size: 20px;
+}
+
+.tab-head {
+    position: sticky;
 }

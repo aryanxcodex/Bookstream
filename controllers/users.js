@@ -4,7 +4,7 @@ const Books = require("../models/books");
 const waitingList = require("../models/waitinglist");
 
 module.exports.renderRegisterForm = (req, res) => {
-  res.render("users/register");
+  res.render("users/student-register");
 };
 
 module.exports.renderLoginForm = (req, res) => {
@@ -12,8 +12,8 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.registerUser = async (req, res) => {
-  const { email, username, password, dept} = req.body;
-  const user = new User({ email, username, dept });
+  const { collegeid, email, username, password, dept, phone} = req.body;
+  const user = new User({ collegeid, phone, email, username, dept });
   const registeredUser = await User.register(user, password);
   if (registeredUser) {
     sendEmail(email);
@@ -24,19 +24,23 @@ module.exports.registerUser = async (req, res) => {
 
 module.exports.login = (req, res) => {
   req.flash("success", "Welcome Back!");
-  const redirectUrl = req.session.returnTo || "/";
+  const redirectUrl = req.session.returnTo || "/user/dashboard";
   delete req.session.returnTo;
   res.redirect(redirectUrl);
 };
 
 module.exports.renderDashboard = async (req,res)=>{
+  const books = await Books.find({});
   const numOfBooks = await Books.countDocuments({});
-  res.render('users/dashboard', { numOfBooks } );
+  res.render('users/dashboard', { numOfBooks, books } );
 };
 
 
 module.exports.renderBooksPage = async (req,res)=>{
-  const books = await Books.find({});
+  const { title } = req.body;
+  const filterObj = {};
+  filterObj.title = new RegExp(title, 'i');
+  const books = await Books.find(filterObj);
   res.render('users/books', { books });
 };
 
@@ -54,9 +58,10 @@ module.exports.requestBook = async(req,res) =>{
   const list = await waitingList.insertMany([{user: userid, book: bookid}]);
   if(list) {
     req.flash("success", "Your request was made !");
-    res.redirect("/user/books");
+    res.redirect("/user/dashboard");
   } else {
     res.flash("error", "Error processing request");
-    res.redirect("/user/books");
+    res.redirect("/user/dashboard");
   }
-}
+};
+

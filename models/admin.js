@@ -4,6 +4,13 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const passport = require("passport");
 
 const AdminSchema = new Schema({
+  collegeid: {
+    type: Number,
+    required: true,
+  },
+  phone:{
+    type: Number,
+  },
   email: {
     type: String,
     required: true,

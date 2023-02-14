@@ -8,6 +8,11 @@
 </head>
 <body>
     <ul>
+        <form method="post" action="/user/books">
+            <label for="book">search</label>
+            <input type="text" id="book" name="title">
+            <button>Submit</button>
+        </form>
         <%- include('../layouts/flash') %> 
         <% for(let book of books) { %>
             <li><a href="/user/books/<%= book._id %>"><%= book.title %></a></li>

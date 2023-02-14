@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstream</title>
-    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="librarian-form.css">
+    <link rel="stylesheet" href="/css/librarian-form.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
     <body>
         <header>
             <div class="page-title">
-            <a href="manage-librarians.html"><img src="arrow-left.svg" alt="arrow-left"></a>
+            <a href="/superadmin/dashboard/manage-librarians"><img src="/images/arrow-left.svg" alt="arrow-left"></a>
             <h1>Welcome Super Admin!</h1></div>
             <div class="acc_settings">
-                <img src="setting-icon.svg" alt="settings">
+                <img src="/images/setting-icon.svg" alt="settings">
                 <a href="#">Account Settings</a>
             </div>
         </header>
@@ -26,22 +26,22 @@
             <div class="title">
                 <h2>Add Librarian Details</h2>
             </div>
-            <form action="/">
+            <form action="/superadmin/dashboard/librarian-form" method="post">
                 <div class="librarian-details">
                     <div class="container1">
                         <h2>Personal Details</h2>
                         <div class="details">
                             <div class="div 1">
                                 <h3>Name</h3>
-                                <input type="text" name="" id="" placeholder="Full name">
+                                <input type="text" name="name" id="" placeholder="Full name">
                             </div>
                             <div class="div 2">
                                 <h3>Contact No:</h3>
-                                <input type="tel" name="" id="" placeholder="Contact No">
+                                <input type="tel" name="phone" id="" placeholder="Contact No">
                             </div>
                             <div class="div 3">
                                 <h3>E-mail</h3>
-                                <input type="email" name="" id="" placeholder="E-mail ID">
+                                <input type="email" name="email" id="" placeholder="E-mail ID" required>
                             </div>
                         </div>
                     </div>
@@ -50,15 +50,15 @@
                         <div class="details">
                             <div class="div 4">
                                 <h3>College ID</h3>
-                                <input type="number" name="" id="" placeholder="College-ID">
+                                <input type="number" name="collegeid" id="" placeholder="College-ID" required>
                             </div>
                             <div class="div 5">
                                 <h3>Designation</h3>
-                                <input type="text" name="" id="" placeholder="Designation">
+                                <input type="text" name="desg" id="" placeholder="Designation">
                             </div>
                             <div class="div 6">
-                                <h3>User-code</h3>
-                                <input type="text" name="" id="" placeholder="User-code">
+                                <h3>Department</h3>
+                                <input type="text" name="dept" id="" placeholder="Department" required>
                             </div>
                         </div>
                     </div>
@@ -67,11 +67,11 @@
                         <div class="details1">
                             <div class="div-seven">
                                 <h3>Username</h3>
-                                <input type="text" name="" id="" placeholder="Username">
+                                <input type="text" name="username" id="" placeholder="Username" required>
                             </div>
                             <div class="div-seven">
                                 <h3>Password</h3>
-                                <input type="password" name="" id="" placeholder="Password">
+                                <input type="password" name="password" id="" placeholder="Password" required>
                             </div>
                         </div>
                     </div>
