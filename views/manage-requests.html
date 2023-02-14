@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstream</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="manage-request.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="side-pane">
+        <div class="logo">
+            <a href="#"><img src="logo-white.png" alt=""></a>
+        </div>
+        <div class="nav">
+            <div class="nav-item">
+                <a href="librarian-dashboard.html"><img src="dashboard-icon.svg" alt=""><p> Dashboard</p></a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-books.html"><img src="book-icon.svg" alt=""><p> Manage Books</p></a>
+            </div>
+            <div class="nav-item">
+                <a href="overdue-books.html"><img src="clock-icon.svg" alt=""><p> Overdue Books</p></a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-students.html"><img src="student-icon.svg" alt=""><p> Manage Students</p></a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-sections.html"><img src="location-icon.svg" alt=""><p> Manage Sections</p></a>
+            </div>
+            <div class="nav-item">
+                <a href="manage-requests.html"><img src="book-icon.svg" alt=""><p> Borrow requests</p></a>
+            </div>
+        </div>
+    </div>
+    <div class="main-cont">
+        <div class="header">
+            <div class="title">
+                <h1>Manage book borrow requests</h1>
+            </div>
+            <div class="acc_settings">
+                <img src="setting-icon.svg" alt="settings">
+                <div>Account Settings</div>
+            </div>
+        </div>
+        <hr>
+        <div class="requests">
+            <h1>Borrow requests</h1>
+            <div class="data-tab">
+                <table class="blueTable">
+                    <thead>
+                    <div class="tab-head">
+                        <tr >
+                        <th>Student Name</th>
+                        <th>Book title</th>
+                        <th>Author</th>
+                        <th>Class</th>
+                        <th>Department</th>
+                        <th>Actions</th>
+                        </tr>
+                    </div>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>Death</td>
+                    <td>Sadhguru</td>
+                    <td>SYBSCIT</td>
+                    <td>BSCIT</td>
+                    <td id="actions"><i class="fa-regular fa-circle-check"></i><i class="fa-solid fa-xmark"></i></td>
+                    </tr>
+                    <tr>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>Death</td>
+                    <td>Sadhguru</td>
+                    <td>SYBSCIT</td>
+                    <td>BSCIT</td>
+                    <td id="actions"><i class="fa-regular fa-circle-check"></i><i class="fa-solid fa-xmark"></i></td>
+                    </tr>
+                    <tr>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>Death</td>
+                    <td>Sadhguru</td>
+                    <td>SYBSCIT</td>
+                    <td>BSCIT</td>
+                    <td id="actions"><i class="fa-regular fa-circle-check"></i><i class="fa-solid fa-xmark"></i></td>
+                    </tr>
+                    <tr>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td>Death</td>
+                    <td>Sadhguru</td>
+                    <td>SYBSCIT</td>
+                    <td>BSCIT</td>
+                    <td id="actions"><i class="fa-regular fa-circle-check"></i><i class="fa-solid fa-xmark"></i></td>
+                    </tr>
+                    </tbody>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>

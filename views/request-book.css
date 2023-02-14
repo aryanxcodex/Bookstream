@@ -94,7 +94,7 @@ body{
     font-size: 3rem;
     font-weight: 600;
     color: #2B2B2B;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .acc_settings{
@@ -104,7 +104,7 @@ body{
     padding: 10px 6px;
     font-size: 1.2rem;
     font-weight: 500;
-    width: 18%;
+    width: 16%;
     cursor: pointer;
     /* border: 2px solid black; */
 }
@@ -129,203 +129,78 @@ hr{
 }
 
 
-.stats{
+.search-book{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
-    width: 70%;
-    /* height: 220px; */
+    align-items: flex-start;
+    width: 100%;
+    height: 20%;
+    margin: 20px 0px 0px 0px;
     padding: 10px;
     /* border: 2px solid black; */
 }
 
-.div1, .div2, .div3{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width:30%;
-    height: 140px;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: #436BE6;
-    /* border: 2px solid black; */
-}
-
-.div1 h1, .div2 h1, .div3 h1{
-    font-size: 80px;
+.search-book h1{
+    font-size: 1.8rem;
     font-weight: 600;
-    color: #FFFFFF;
+    color: #436BE6;
     padding: 0;
     display: inline-block;
     /* border: 2px solid black; */
 }
 
-.div1 h4, .div2 h4{
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    height: 80px;
+    /* border: 2px solid black; */
+}
+
+.search-bar input{
+    width: 100%;
+    height: 45px;
+    border: 1px solid black;
+    border-radius: 8px;
+    outline: none;
     font-size: 1.2rem;
     font-weight: 500;
-    color: #FFFFFF;
-    position: relative;
-    bottom: 10px;
-    /* border: 2px solid black; */
+    padding: 0px 10px;
 }
 
-.div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 240px;
+.search-bar button{
+    width: 100px;
+    height: 45px;
+    background-color: #436BE6;
+    color: #FFFFFF;
     font-size: 1.2rem;
     font-weight: 500;
-    color: #FFFFFF;
-    position: relative;
-    bottom: 10px;
-    /* border: 2px solid black; */
-    /* height: 100%; */
-    /* border: 2px solid black; */
-}
-
-.actions{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 30%;
-    height: 100%;
-    /* border: 2px solid black; */
-}
-
-.manage-librarians, .manage-students{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    /* padding: 10px; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0px 20px;
     border-radius: 8px;
-    /* margin: 8px 20px;  */
-    background-color: #436BE6;
-    /* border: 2px solid black; */
 }
 
-#actions{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 50%;
-    height: 25%;
-    /* padding: 10px; */
-    border-radius: 8px;
-    margin: 8px 20px; 
-    background-color: #436BE6;
-    text-decoration: none;
-    color: #FFFFFF;
-    font-size: 1.1rem;
-    font-weight: 400;
-    /* border: 2px solid black; */
-}
-
-.manage-librarians img, .manage-students img{
-    width: 25px;
-    height: 25px;
-    /* border-radius: 50%; */
-    /* border: 2px solid black; */
-}
-
-.users{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    margin-top: 20px;
-    padding: 8px;
-    /* border: 2px solid black; */
-}
-
-/* Librarian Data Table */
-
-.details{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-    margin: 0px 15px;
-    /* padding-top: 10px; */
-    /* background-color: #E7EFFF; */
-    /* border-radius: 15px; */
-    /* border: 2px solid black; */
-}
-
-.data-title{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 10%;
-    padding: 0px 15px;
-    /* border: 2px solid black; */
-}
-
-
-.data-title h2{
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #000000;
-    /* border: 2px solid black; */
-}
-
-
-.expand{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    color: #7C7C7C;
-    width: 20%;
-    /* border: 2px solid black; */
-}
-/* 
-.expand p{
-    font-size: 1.1rem;
-    font-weight: 400;
-    width: 20px;
-    border: 2px solid black;
-} */
-
-.users{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    margin-top: 20px;
-    padding: 8px;
-    /* border: 2px solid black; */
-}
 
 .data-tab{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    max-width: 100%;
+    width: 100%;
     height: 350px;
     /* padding: 20px 0px; */
     overflow-y: auto;
-    overflow-x: hidden;
     background-color: #E7EFFF;
     border-radius: 15px;
+    margin: 20px 0px;
     /* border: 2px solid black; */
 }
+
 
 table.blueTable {
     width: 95%;
@@ -363,4 +238,24 @@ table.blueTable {
 
   .tab-head{
     position: sticky;
+  }
+
+  .request{
+    position: relative;
+    top: 0px;
+    /* border: 2px solid black; */
+  }
+
+  .request button{
+    width: 150px;
+    height: 40px;
+    background-color: #436BE6;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0px 8px;
+    border-radius: 8px;
   }
