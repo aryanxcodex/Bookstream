@@ -27,12 +27,32 @@
                 <a href="/superadmin/dashboard/librarian-form" style="text-decoration: none;">
                     <div class="add-librarian">
                         <img src="/images/add-square.svg" alt="add-librarian">
-                        <p>Add New Librarian</p>
+                        <p>Add new librarian</p>
                     </div>
                 </a>
             </div>
             <div class="data-tab">
-                This area contains the list of librarians.
+                <table class="blueTable">
+                    <thead>
+                        <div class="tab-head">
+                            <tr>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>E-mail</th>
+                            </tr>
+                        </div>
+                    </thead>
+                    <tbody>
+                        <% for(librarian of librarians) { %>
+                            <tr>
+                                <td><%= librarian.username %></td>
+                                <td><%= librarian.dept %></td>
+                                <td><%= librarian.email %></td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                    </tr>
+                </table>
             </div>
         </div>
     </body>

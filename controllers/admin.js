@@ -38,6 +38,8 @@ module.exports.approveRequest = async (req, res) => {
   const updateBookArray = await User.updateOne({ _id: userid }, { $push: { books_borrowed: newBook } });
   const updateUserArray = await Book.updateOne({ _id: bookid }, { $push: { users: userid } });
   sendEmail(user.email, `Your request for the book ${book.title} was approved!`);
+  req.flash("success", "The request was approved!");
+  res.redirect("/admin/waitingList");
 };
 
 module.exports.renderdashboard = async (req, res) => {
@@ -46,4 +48,20 @@ module.exports.renderdashboard = async (req, res) => {
   const blacklists = await User.find({isBlacklisted: true});
   const borrowedbooks = await Books.find({}).populate('users');
   res.render("admin/librarian-dashboard", { numOfBooks, numOfUsers, blacklists, borrowedbooks });
+};
+
+module.exports.rendermanagebooks = async (req,res) => {
+  const books = await Books.find({});
+  res.render("admin/manage-books", { books });
+};
+
+module.exports.addbook = async (req,res) => {
+  const { title, ISBN, author, cat } = req.body;
+  const authors = [author];
+  const category = [cat];
+  const addbook = await Books.insertMany({title, ISBN, authors, category });
+  if(addbook) {
+    req.flash("success","added the book successfully");
+    res.redirect("/admin/manage-books");
+  }
 };

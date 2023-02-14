@@ -35,6 +35,8 @@ const authors = [
   "Unknown",
   "Alphin Stivi",
   "Arya Shah",
+  "Reshma Rajan",
+  "Seema Singh",
 ];
 
 const category = [

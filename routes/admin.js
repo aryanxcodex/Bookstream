@@ -7,11 +7,11 @@ const passport = require("passport");
 const waitinglist = require("../models/waitinglist");
 
 
-router.get("/register", adminController.renderRegisterForm);
+router.get("/register", catchAsync(adminController.renderRegisterForm));
 
 router.post("/register", catchAsync(adminController.registerAdmin));
 
-router.get("/login", adminController.renderLoginForm);
+router.get("/login", catchAsync(adminController.renderLoginForm));
 
 router.post(
   "/login",
@@ -26,6 +26,10 @@ router.get('/waitinglist', catchAsync(adminController.renderWaitingListPage));
 
 router.delete('/waitinglist/:userid/:bookid', catchAsync(adminController.approveRequest));
 
-router.get('/dashboard', adminController.renderdashboard);
+router.get('/dashboard', catchAsync(adminController.renderdashboard));
+
+router.get('/manage-books', catchAsync(adminController.rendermanagebooks));
+
+router.post('/addbook', adminController.addbook);
 
 module.exports = router;

@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Requested Books</h1>
+    <%- include('../layouts/flash') %> 
     <% for(l of list) { %>
         <div>
             <p>Student name: <%= l.user.username %> </p>

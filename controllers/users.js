@@ -24,14 +24,15 @@ module.exports.registerUser = async (req, res) => {
 
 module.exports.login = (req, res) => {
   req.flash("success", "Welcome Back!");
-  const redirectUrl = req.session.returnTo || "/";
+  const redirectUrl = req.session.returnTo || "/user/dashboard";
   delete req.session.returnTo;
   res.redirect(redirectUrl);
 };
 
 module.exports.renderDashboard = async (req,res)=>{
+  const books = await Books.find({});
   const numOfBooks = await Books.countDocuments({});
-  res.render('users/dashboard', { numOfBooks } );
+  res.render('users/dashboard', { numOfBooks, books } );
 };
 
 
@@ -57,10 +58,10 @@ module.exports.requestBook = async(req,res) =>{
   const list = await waitingList.insertMany([{user: userid, book: bookid}]);
   if(list) {
     req.flash("success", "Your request was made !");
-    res.redirect("/user/books");
+    res.redirect("/user/dashboard");
   } else {
     res.flash("error", "Error processing request");
-    res.redirect("/user/books");
+    res.redirect("/user/dashboard");
   }
-}
+};
 

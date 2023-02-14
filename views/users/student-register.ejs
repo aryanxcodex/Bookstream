@@ -32,11 +32,11 @@
                         <div class="details">
                             <div class="college-id">
                                 <label for="college-id" class="labels">College ID</label>
-                                <input type="text" name="collegeid" class="inputs">
+                                <input type="text" name="collegeid" class="inputs" required>
                             </div>
                             <div class="department">
                                 <label for="user-department" class="labels">Department</label>
-                                <input type="text" name="dept" class="inputs">
+                                <input type="text" name="dept" class="inputs" required>
                             </div>  
                         </div>
                         <div class="name">
@@ -52,22 +52,22 @@
                         <div class="contacts">
                             <div class="email">
                                 <label for="email" class="labels">Email</label><br>
-                                <input type="email" name="email" id="email" class="inputs">
+                                <input type="email" name="email" id="email" class="inputs" required>
                             </div>
                             <div class="phone">
                                 <label for="phone" class="labels">Phone</label><br>
-                                <input type="tel" name="phone" id="phone" class="inputs">
+                                <input type="tel" name="phone" id="phone" class="inputs" pattern="[0-9]+">
                             </div>
                         </div>
                         <div class="credentials">
                             <div class="username">
                                 <label for="username" class="labels">Username</label><br>
-                                <input type="text" name="username" id="username" class="inputs">
+                                <input type="text" name="username" id="username" class="inputs" required>
                             </div>
                             <div class="password">
                                 <label for="password" class="labels">Password</label><br>
                                 <div class="pass-input">
-                                    <input type="password" name="password" id="password" class="inputs">
+                                    <input type="password" name="password" id="password" class="inputs" required>
                                     <div class="show-pass">
                                         <img src="/images/password-eye.svg" id="toggle" alt="">
                                     </div>

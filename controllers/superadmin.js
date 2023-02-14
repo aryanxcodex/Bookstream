@@ -18,8 +18,9 @@ module.exports.renderdashboard = async (req,res)=>{
     res.render("superadmin/super-dashboard", { numOfAdmins, numOfUsers, librarians, students });
 };
 
-module.exports.rendermanagelibrarians = (req,res)=> {
-    res.render("superadmin/manage-librarians");
+module.exports.rendermanagelibrarians = async (req,res)=> {
+    const librarians = await Admin.find({});
+    res.render("superadmin/manage-librarians", { librarians });
 };
 
 module.exports.renderloginpage = (req,res)=>{
