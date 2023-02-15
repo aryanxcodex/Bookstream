@@ -14,7 +14,6 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.login = (req, res) => {
-  req.flash("success", "Welcome Back!");
   const redirectUrl = req.session.returnTo || "/admin/dashboard";
   delete req.session.returnTo;
   res.redirect(redirectUrl);
@@ -39,7 +38,7 @@ module.exports.approveRequest = async (req, res) => {
   const updateUserArray = await Book.updateOne({ _id: bookid }, { $push: { users: userid } });
   sendEmail(user.email, `Your request for the book ${book.title} was approved!`);
   req.flash("success", "The request was approved!");
-  res.redirect("/admin/waitingList");
+  res.redirect("/admin/manage-requests");
 };
 
 module.exports.renderdashboard = async (req, res) => {
@@ -53,6 +52,28 @@ module.exports.renderdashboard = async (req, res) => {
 module.exports.rendermanagebooks = async (req,res) => {
   const books = await Books.find({});
   res.render("admin/manage-books", { books });
+};
+
+module.exports.rendermanagerequests = async (req,res)=> {
+  const list = await waitingList.find({}).populate('user').populate('book');
+  res.render("admin/manage-requests", { list });
+};
+
+module.exports.rendermanagesections = (req,res)=> {
+  res.render("admin/manage-sections");
+};
+
+module.exports.rendermanagestudents = (req,res)=> {
+  res.render("admin/manage-students");
+};
+
+module.exports.renderoverduebooks = (req,res)=> {
+  res.render("admin/overdue-books");
+};
+
+module.exports.renderrequestbooks = async (req,res)=> {
+  const list = await waitingList.find({}).populate('user').populate('book');
+  res.render("admin/request-book", { list });
 };
 
 module.exports.addbook = async (req,res) => {

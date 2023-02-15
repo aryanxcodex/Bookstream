@@ -11,7 +11,7 @@ router.get("/register", catchAsync(adminController.renderRegisterForm));
 
 router.post("/register", catchAsync(adminController.registerAdmin));
 
-router.get("/login", catchAsync(adminController.renderLoginForm));
+router.get("/login", adminController.renderLoginForm);
 
 router.post(
   "/login",
@@ -26,9 +26,21 @@ router.get('/waitinglist', catchAsync(adminController.renderWaitingListPage));
 
 router.delete('/waitinglist/:userid/:bookid', catchAsync(adminController.approveRequest));
 
+
+
 router.get('/dashboard', catchAsync(adminController.renderdashboard));
 
-router.get('/manage-books', catchAsync(adminController.rendermanagebooks));
+router.get('/manage-books', adminController.rendermanagebooks);
+
+router.get('/manage-requests', catchAsync(adminController.rendermanagerequests));
+
+router.get('/manage-sections', adminController.rendermanagesections);
+
+router.get('/manage-students', adminController.rendermanagestudents);
+
+router.get('/overdue-books', adminController.renderoverduebooks);
+
+router.get('/request-book', catchAsync(adminController.renderrequestbooks));
 
 router.post('/addbook', adminController.addbook);
 
