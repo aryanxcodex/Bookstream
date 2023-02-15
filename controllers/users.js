@@ -30,9 +30,13 @@ module.exports.login = (req, res) => {
 };
 
 module.exports.renderDashboard = async (req,res)=>{
+  const user = await User.findById(req.user._id);
+  const list = await waitingList.find({ user: req.user._id }).populate('book');
+  const { id } = req.params;
+  const book = await Books.findById(id);
   const books = await Books.find({});
   const numOfBooks = await Books.countDocuments({});
-  res.render('users/dashboard', { numOfBooks, books } );
+  res.render('users/dashboard', { numOfBooks, books, book, user, list } );
 };
 
 

@@ -94,7 +94,7 @@
                         <div><input type="text" placeholder="Book Name" name="title" required class="insert-input">
                         </div>
                         <div><input type="text" placeholder="Author" name="author" required class="insert-input"></div>
-                        <div><input type="text" placeholder="Category" name="category" required class="insert-input">
+                        <div><input type="text" placeholder="Category" name="cat" required class="insert-input">
                         </div>
                         <input type="submit" name="Submit" id="submit-insert-book">
                     </form>
@@ -124,6 +124,9 @@
                                 </td>
                                 <td>
                                     <%= book.category[0] %>
+                                </td>
+                                <td>
+                                    <%= book.stock %>
                                 </td>
                             </tr>
                             <% } %>

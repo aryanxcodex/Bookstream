@@ -70,11 +70,23 @@
         <tbody>
           <%- include('../layouts/flash') %> 
           <% for(book of books) { %>
+            <% let flag = false %>  
+              <% for(l of list) { %>
+              <% if((l.book._id).toString() === (book._id).toString()) {%>
+              <% flag = true %> 
+              <% } %>   
+              <% } %>
             <tr>
               <td><%= book.title %></td>
               <td><%= book.authors[0] %></td>
               <td><%= book.category[0] %></td>
-              <td><form action="/user/books/requestbook/<%= book._id %>" method="post"><button>Request Book</button></form></td>
+              <% if(user.books_borrowed.some(e => e.bookid == book._id) || flag) { %>
+                  <td>Requested</td>
+              <% } else if( book.stock ) { %>
+                  <td><form action="/user/books/requestbook/<%= book._id %>" method="post"><button>Request Book</button></form></td>
+              <% } else { %>
+                  <td>Out of Stock!</td> 
+              <% } %>           
             </tr>
           <% } %> 
         </tbody>

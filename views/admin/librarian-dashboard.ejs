@@ -117,7 +117,9 @@
                                 <tr>
                                     <td><%= b.title %></td>
                                     <td><%= b.authors[0] %></td>
-                                    <td><%= b.users[0].username %></td>
+                                    <% for(let i = 0; i < b.users.length; i++) { %>
+                                        <td><%= b.users[i].username %></td>
+                                    <% } %>
                                 </tr>
                             <%  } %>
                             <% } %>
