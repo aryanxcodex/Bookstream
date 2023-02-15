@@ -240,6 +240,10 @@ table.blueTable {
     position: sticky;
   }
 
+  table.blueTable tbody tr:nth-child(even) {
+    background: #D0E4F5;
+}
+
   .request{
     position: relative;
     top: 0px;

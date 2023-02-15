@@ -135,9 +135,10 @@ hr{
     justify-content: flex-start;
     align-items: center;
     max-width: 100%;
-    height: 350px;
-    /* padding: 20px 0px; */
-    overflow-y: auto;
+    min-height: 150px;
+    max-height: 70vh; ;
+    padding: 20px 0px;
+    overflow-y: scroll;
     overflow-x: hidden;
     background-color: #E7EFFF;
     border-radius: 15px;
@@ -149,7 +150,7 @@ table.blueTable {
     height: 90%;
     text-align: left;
     position: relative;
-    top: 10px;
+    /* top: 10px; */
     /* border: 2px solid black; */
     /* overflow-y: auto; */
     /* border-collapse: collapse; */
@@ -223,10 +224,19 @@ table.blueTable {
     /* border: 2px solid black; */
 }
 
-#actions i{
-    font-size: 1.5rem;
-    color: #2B2B2B;
-    cursor: pointer;
-    margin: 0px 20px ;
+#actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid black; */
 }
+/* form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 2px solid black;
+} */
 
