@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/student-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -55,8 +56,20 @@
                         </div>
                         <div class="login-btn">
                             <button type="submit" id="submit">Login</button>
+                        </div>
                     </form>
+                    <!-- Trigger/Open The Modal -->
+                    <button id="trigger">Open Modal</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="alertModal" class="alertModal">
+        <div class="test-cont">
+            <!-- Modal content -->
+            <div class="alertmodal-content">
+                <p>The username and password do not match!</p><span class="closebtn"><i class="fa-solid fa-xmark"></i></span>
             </div>
         </div>
     </div>
@@ -73,6 +86,33 @@
                     toggle.src = "/images/password-eye.svg";
                 }
         });
+    </script>
+    <script>
+        // Get the modal
+        var alertmodal = document.getElementById("alertModal");
+        
+        // Get the button that opens the modal
+        var trigger = document.getElementById("trigger");
+        
+        // Get the <span> element that closes the modal
+        var close = document.getElementsByClassName("closebtn")[0];
+        
+        // When the user clicks the button, open the modal 
+        trigger.onclick = function() {
+          alertmodal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        close.onclick = function() {
+          alertmodal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            alertmodal.style.display = "none";
+          }
+        }
     </script>
 </body>
 </html>
