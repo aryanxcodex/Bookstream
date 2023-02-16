@@ -128,6 +128,23 @@ hr{
     height: 5px;
 }
 
+.update{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid black; */
+}
+
+.update h1{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2B2B2B;
+}
+
+
 
 .data-tab{
     display: flex;
@@ -135,13 +152,13 @@ hr{
     justify-content: flex-start;
     align-items: center;
     max-width: 100%;
-    min-height: 150px;
-    max-height: 70vh; ;
-    padding: 20px 0px;
-    overflow-y: scroll;
+    height: 350px;
+    /* padding: 20px 0px; */
+    overflow-y: auto;
     overflow-x: hidden;
     background-color: #E7EFFF;
     border-radius: 15px;
+    margin: 10px 0px;
     /* border: 2px solid black; */
 }
 
@@ -150,7 +167,7 @@ table.blueTable {
     height: 90%;
     text-align: left;
     position: relative;
-    /* top: 10px; */
+    top: 10px;
     /* border: 2px solid black; */
     /* overflow-y: auto; */
     /* border-collapse: collapse; */
@@ -162,17 +179,12 @@ table.blueTable {
     /* border: 2px solid black; */
   }
 
-
   table.blueTable th{
     font-weight: 400;
   }
 
   table.blueTable tbody td {
     font-size: 17px;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-evenly; */
-    /* border: 2px solid black; */
   }
 
   table.blueTable thead th {
@@ -183,60 +195,32 @@ table.blueTable {
   table.blueTable tfoot td {
     font-size: 20px;
   }
-/* 
-  table.blueTable tr{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-start;
-  } */
 
   .tab-head{
     position: sticky;
   }
 
-.requests{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 20px 0px;
-    /* border: 2px solid black; */
-}
+  #blacklist{
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+  }
 
-.requests h1{
+  .main-cont h2{
     font-size: 2rem;
     font-weight: 600;
     color: #436BE6;
-    padding-left: 20px;
-}
+    padding: 10px 0px;
+    margin-left: 10px;
+  }
 
-#actions button{
-    width: 80px;
-    height: 30px;
-    border-radius: 5px;
-    margin: 0px 10px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #436BE6;
-    color: #FFFFFF;
-    /* border: 2px solid black; */
-}
-
-#actions{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    /* border: 2px solid black; */
-}
-/* form{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    border: 2px solid black;
-} */
-
+  .main-cont p{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2B2B2B;
+    padding: 10px 0px;
+    margin-left: 10px;
+  }
