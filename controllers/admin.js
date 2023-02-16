@@ -44,45 +44,50 @@ module.exports.approveRequest = async (req, res) => {
 module.exports.renderdashboard = async (req, res) => {
   const numOfBooks = await Books.countDocuments({});
   const numOfUsers = await User.countDocuments({});
-  const blacklists = await User.find({isBlacklisted: true});
+  const blacklists = await User.find({ isBlacklisted: true });
   const borrowedbooks = await Books.find({}).populate('users');
   res.render("admin/librarian-dashboard", { numOfBooks, numOfUsers, blacklists, borrowedbooks });
 };
 
-module.exports.rendermanagebooks = async (req,res) => {
+module.exports.rendermanagebooks = async (req, res) => {
   const books = await Books.find({});
   res.render("admin/manage-books", { books });
 };
 
-module.exports.rendermanagerequests = async (req,res)=> {
+module.exports.rendermanagerequests = async (req, res) => {
   const list = await waitingList.find({}).populate('user').populate('book');
   res.render("admin/manage-requests", { list });
 };
 
-module.exports.rendermanagesections = (req,res)=> {
+module.exports.rendermanagesections = (req, res) => {
   res.render("admin/manage-sections");
 };
 
-module.exports.rendermanagestudents = (req,res)=> {
+module.exports.rendermanagestudents = (req, res) => {
   res.render("admin/manage-students");
 };
 
-module.exports.renderoverduebooks = (req,res)=> {
-  res.render("admin/overdue-books");
+module.exports.renderoverduebooks = async (req, res) => {
+  const today = new Date();
+  const users = await User.find({
+    'books_borrowed.returnAt': { $lt: today },
+    isBlacklisted: false,
+  });
+  res.render("admin/overdue-books", { users });
 };
 
-module.exports.renderrequestbooks = async (req,res)=> {
+module.exports.renderrequestbooks = async (req, res) => {
   const list = await waitingList.find({}).populate('user').populate('book');
   res.render("admin/request-book", { list });
 };
 
-module.exports.addbook = async (req,res) => {
+module.exports.addbook = async (req, res) => {
   const { title, ISBN, author, cat } = req.body;
   const authors = [author];
   const category = [cat];
-  const addbook = await Books.insertMany({title, ISBN, authors, category });
-  if(addbook) {
-    req.flash("success","added the book successfully");
+  const addbook = await Books.insertMany({ title, ISBN, authors, category });
+  if (addbook) {
+    req.flash("success", "added the book successfully");
     res.redirect("/admin/manage-books");
   }
 };

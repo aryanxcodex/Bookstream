@@ -143,3 +143,84 @@ hr{
     font-weight: 600;
     color: #2B2B2B;
 }
+
+
+
+.data-tab{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+    height: 350px;
+    /* padding: 20px 0px; */
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #E7EFFF;
+    border-radius: 15px;
+    margin: 10px 0px;
+    /* border: 2px solid black; */
+}
+
+table.blueTable {
+    width: 95%;
+    height: 90%;
+    text-align: left;
+    position: relative;
+    top: 10px;
+    /* border: 2px solid black; */
+    /* overflow-y: auto; */
+    /* border-collapse: collapse; */
+  }
+
+  table.blueTable td, table.blueTable th {
+    padding: 4px 20px;
+    /* font-weight: 600; */
+    /* border: 2px solid black; */
+  }
+
+  table.blueTable th{
+    font-weight: 400;
+  }
+
+  table.blueTable tbody td {
+    font-size: 17px;
+  }
+
+  table.blueTable thead th {
+    font-size: 25px;
+    position: sticky;
+    font-weight: bold;
+  }
+  table.blueTable tfoot td {
+    font-size: 20px;
+  }
+
+  .tab-head{
+    position: sticky;
+  }
+
+  #blacklist{
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+  }
+
+  .main-cont h2{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #436BE6;
+    padding: 10px 0px;
+    margin-left: 10px;
+  }
+
+  .main-cont p{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2B2B2B;
+    padding: 10px 0px;
+    margin-left: 10px;
+  }

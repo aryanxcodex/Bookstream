@@ -38,7 +38,7 @@ router.get('/manage-sections', adminController.rendermanagesections);
 
 router.get('/manage-students', adminController.rendermanagestudents);
 
-router.get('/overdue-books', adminController.renderoverduebooks);
+router.get('/overdue-books', catchAsync(adminController.renderoverduebooks));
 
 router.get('/request-book', catchAsync(adminController.renderrequestbooks));
 
