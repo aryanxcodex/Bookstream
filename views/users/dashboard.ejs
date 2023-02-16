@@ -80,8 +80,10 @@
               <td><%= book.title %></td>
               <td><%= book.authors[0] %></td>
               <td><%= book.category[0] %></td>
-              <% if(user.books_borrowed.some(e => e.bookid == book._id) || flag) { %>
+              <% if(flag) { %>
                   <td>Requested</td>
+              <% } else if(user.books_borrowed.some(e => (e.bookid).toString() === (book._id).toString())) { %>
+                  <td>Approved!</td>    
               <% } else if( book.stock ) { %>
                   <td><form action="/user/books/requestbook/<%= book._id %>" method="post"><button>Request Book</button></form></td>
               <% } else { %>
