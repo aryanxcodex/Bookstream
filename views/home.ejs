@@ -140,11 +140,11 @@
         <div class="message">
             <h3>For complaints/doubts/queries/suggestions, contact us below.</h3>
         </div>
-        <form action="feedback_form.php" method="post" class="contact-form">
-            <h2>Name</h2><input type="text" name="Name">
-            <h2>Contact No.</h2><input type="tel" name="Contact_No">
-            <h2>E-mail</h2><input type="email" name="Email">
-            <h2>Queries/Complaints/Suggestions/Feedbacks</h2><input type="textbox" id="big-text" name="Feedback">
+        <form action="/feedback" method="post" class="contact-form">
+            <h2>Name</h2><input type="text" name="name" required>
+            <h2>Contact No.</h2><input type="tel" name="phone" required>
+            <h2>E-mail</h2><input type="email" name="email" required>
+            <h2>Queries/Complaints/Suggestions/Feedbacks</h2><input type="textbox" id="big-text" name="feedback">
             <input type="submit" id="submit" name="Submit">
         </form>
     </section>

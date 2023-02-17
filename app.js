@@ -20,6 +20,7 @@ const adminRoutes = require("./routes/admin");
 const ExpressError = require('./utils/ExpressError');
 const catchAsync = require("./utils/catchAsync");
 const superadminRoutes = require("./routes/superadmin");
+const sendEmail = require("./nodemailer/index");
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -81,6 +82,13 @@ app.get("/register", (req,res)=>{
 
 app.get("/onboarding", (req,res)=>{
   res.render("onboarding");
+});
+
+app.post("/feedback", async (req,res) => {
+  const email = "ganeshgajelly66@gmail.com";
+  const { feedback } = req.body;
+  sendEmail(email,feedback);
+  res.redirect('/');
 });
 
 app.all("*", (req, res, next) => {
