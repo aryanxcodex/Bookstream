@@ -40,7 +40,7 @@ module.exports.registeradmin = async (req,res)=>{
     }
     req.flash("success", "Welcome to bookstream");
     res.redirect("/");
-}
+};
 
 
 
@@ -67,12 +67,13 @@ module.exports.registeradmin = async (req,res)=>{
 
 
 // module.exports.registerSuperadmin = async (req,res)=>{
-//     const username = "Aryan Singh";
-//     const password = "aryanhello";
+//     const username = "demo user";
+//     const password = "demohello";
 //     const superAdmin = new Superadmin({ username });
 //     const registerSuperadmin = await Superadmin.register(superAdmin, password);
 //     if(registerSuperadmin) {
 //         console.log("hogaya bhai");
+//         res.send("done!");
 //     }
 // }
 

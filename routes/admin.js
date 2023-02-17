@@ -9,13 +9,13 @@ const waitinglist = require("../models/waitinglist");
 
 router.get("/register", catchAsync(adminController.renderRegisterForm));
 
-router.post("/register", catchAsync(adminController.registerAdmin));
+// router.post("/register", catchAsync(adminController.registerAdmin));
 
 router.get("/login", adminController.renderLoginForm);
 
 router.post(
   "/login",
-  passport.authenticate("local", {
+  passport.authenticate("admin", {
     failureFlash: true,
     failureRedirect: "/admin/login",
   }),

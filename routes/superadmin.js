@@ -12,7 +12,7 @@ router.post("/dashboard/librarian-form", superadminController.registeradmin);
 
 router.post(
     "/login",
-    passport.authenticate("local", {
+    passport.authenticate("superadmin", {
       failureFlash: true,
       failureRedirect: "/superadmin/login",
     }),
@@ -25,7 +25,7 @@ router.get("/dashboard/manage-librarians",superadminController.rendermanagelibra
 
 router.get("/dashboard/librarian-form",superadminController.renderlibrarianform);
 
-
+// router.get("/aryan", catchAsync(superadminController.registerSuperadmin));
 
 
 

@@ -15,6 +15,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/users");
 const Admin = require("./models/admin");
+const SuperAdmin = require("./models/superadmin");
 const userRoutes = require("./routes/users");
 const adminRoutes = require("./routes/admin");
 const ExpressError = require('./utils/ExpressError');
@@ -53,10 +54,18 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use("local", new LocalStrategy(User.authenticate()));
+passport.use("admin", new LocalStrategy(Admin.authenticate()));
+passport.use("superadmin", new LocalStrategy(SuperAdmin.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+passport.serializeUser(Admin.serializeUser());
+passport.deserializeUser(Admin.deserializeUser());
+
+passport.serializeUser(SuperAdmin.serializeUser());
+passport.deserializeUser(SuperAdmin.deserializeUser());
 
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
