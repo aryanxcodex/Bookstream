@@ -12,14 +12,19 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.registerUser = async (req, res) => {
-  const { collegeid, email, username, password, dept, phone} = req.body;
-  const user = new User({ collegeid, phone, email, username, dept });
-  const registeredUser = await User.register(user, password);
-  if (registeredUser) {
-    sendEmail(email);
+  try {
+    const { collegeid, email, username, password, dept, phone} = req.body;
+    const user = new User({ collegeid, phone, email, username, dept });
+    const registeredUser = await User.register(user, password);
+    req.login(registeredUser, (err) => {
+      if (err) return next(err);
+      req.flash("success", "Welcome to Bookstream!");
+      res.redirect("/user/dashboard");
+    });
+  } catch (error) {
+    req.flash("error", error.message);
+    res.redirect("/user/register");
   }
-  req.flash("success", "Welcome to bookstream");
-  res.redirect("/");
 };
 
 module.exports.login = (req, res) => {
