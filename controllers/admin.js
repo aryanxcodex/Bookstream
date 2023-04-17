@@ -16,6 +16,7 @@ module.exports.renderLoginForm = (req, res) => {
 module.exports.login = (req, res) => {
   const redirectUrl = req.session.returnTo || "/admin/dashboard";
   delete req.session.returnTo;
+  req.session.admin = true;
   res.redirect(redirectUrl);
 };
 

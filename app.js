@@ -26,13 +26,16 @@ const sendEmail = require("./nodemailer/index");
 mongoose.connect(process.env.MONGODB_URI);
 
 const sessionConfig = {
-  secret: "thisshouldbeabettersecret",
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 60 * 24 * 7,
     httpOnly: true,
+    admin: false,
+    superadmin: false,
+    user: false
   },
 };
 
@@ -78,6 +81,20 @@ app.use("/admin", adminRoutes);
 app.use("/superadmin", superadminRoutes);
 
 app.get("/", (req, res) => {
+
+  if(req.session.user) {
+    res.redirect("/user/dashboard");
+  }
+
+  if(req.session.admin) {
+    res.redirect("admin/dashboard");
+  }
+
+  if(req.session.superadmin) {
+    res.redirect("superadmin/dashboard");
+  }
+
+
   res.render("home");
 });
 

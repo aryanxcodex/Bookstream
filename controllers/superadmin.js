@@ -7,6 +7,7 @@ module.exports.login = (req, res) => {
     req.flash("success", "Welcome Back!");
     const redirectUrl = req.session.returnTo || "/superadmin/dashboard";
     delete req.session.returnTo;
+    req.session.superadmin = true;
     res.redirect(redirectUrl);
 };
 

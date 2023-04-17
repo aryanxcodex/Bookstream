@@ -5,6 +5,7 @@ const sendEmail = require("../nodemailer/index");
 const adminController = require("../controllers/admin");
 const passport = require("passport"); 
 const waitinglist = require("../models/waitinglist");
+const { isAdminLoggedin } = require("../middleware");
 
 
 router.get("/register", catchAsync(adminController.renderRegisterForm));
@@ -28,20 +29,20 @@ router.delete('/waitinglist/:userid/:bookid', catchAsync(adminController.approve
 
 
 
-router.get('/dashboard', catchAsync(adminController.renderdashboard));
+router.get('/dashboard', isAdminLoggedin ,catchAsync(adminController.renderdashboard));
 
-router.get('/manage-books', adminController.rendermanagebooks);
+router.get('/manage-books',isAdminLoggedin, adminController.rendermanagebooks);
 
-router.get('/manage-requests', catchAsync(adminController.rendermanagerequests));
+router.get('/manage-requests',isAdminLoggedin, catchAsync(adminController.rendermanagerequests));
 
-router.get('/manage-sections', adminController.rendermanagesections);
+router.get('/manage-sections',isAdminLoggedin, adminController.rendermanagesections);
 
-router.get('/manage-students', adminController.rendermanagestudents);
+router.get('/manage-students',isAdminLoggedin, adminController.rendermanagestudents);
 
-router.get('/overdue-books', catchAsync(adminController.renderoverduebooks));
+router.get('/overdue-books',isAdminLoggedin, catchAsync(adminController.renderoverduebooks));
 
-router.get('/request-book', catchAsync(adminController.renderrequestbooks));
+router.get('/request-book',isAdminLoggedin, catchAsync(adminController.renderrequestbooks));
 
-router.post('/addbook', adminController.addbook);
+router.post('/addbook',isAdminLoggedin, adminController.addbook);
 
 module.exports = router;

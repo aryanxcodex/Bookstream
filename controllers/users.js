@@ -19,6 +19,7 @@ module.exports.registerUser = async (req, res) => {
     req.login(registeredUser, (err) => {
       if (err) return next(err);
       req.flash("success", "Welcome to Bookstream!");
+      req.session.user = true;
       res.redirect("/user/dashboard");
     });
   } catch (error) {
@@ -31,6 +32,7 @@ module.exports.login = (req, res) => {
   req.flash("success", "Welcome Back!");
   const redirectUrl = req.session.returnTo || "/user/dashboard";
   delete req.session.returnTo;
+  req.session.user = true;
   res.redirect(redirectUrl);
 };
 
