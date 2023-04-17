@@ -22,6 +22,7 @@ const ExpressError = require('./utils/ExpressError');
 const catchAsync = require("./utils/catchAsync");
 const superadminRoutes = require("./routes/superadmin");
 const sendEmail = require("./nodemailer/index");
+const device = require('express-device');
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -54,6 +55,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(device.capture());
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -75,11 +77,13 @@ app.use((req, res, next) => {
   res.locals.error = req.flash("error");
   next();
 });
+
 app.use((req, res, next) => {
   const userAgent = req.headers['user-agent'];
   const isMobile = /mobile/i.test(userAgent);
-
-  if (isMobile) {
+  if (req.device.type === 'phone') {
+    res.send("<h1>Please access this site on a desktop browser for the best experience.</h1>");
+  }else if (isMobile) {
     res.send('<h1>Please access this site on a desktop browser for the best experience.</h1>');
   } else {
     next();
