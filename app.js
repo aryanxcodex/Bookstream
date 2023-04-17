@@ -75,6 +75,16 @@ app.use((req, res, next) => {
   res.locals.error = req.flash("error");
   next();
 });
+app.use((req, res, next) => {
+  const userAgent = req.headers['user-agent'];
+  const isMobile = /mobile/i.test(userAgent);
+
+  if (isMobile) {
+    res.send('<h1>Please access this site on a desktop browser for the best experience.</h1>');
+  } else {
+    next();
+  }
+});
 
 app.use("/user", userRoutes);
 app.use("/admin", adminRoutes);
