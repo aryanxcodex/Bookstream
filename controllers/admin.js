@@ -92,3 +92,17 @@ module.exports.addbook = async (req, res) => {
     res.redirect("/admin/manage-books");
   }
 };
+
+
+module.exports.search = async (req,res) => {
+  const { search } = req.body;
+  const searchCriteria = {};
+
+  if (search) {
+    searchCriteria.title = { $regex: search, $options: 'i' }; // Case-insensitive regex search on title
+  }
+
+  const books = await Book.find(searchCriteria);
+
+  res.render("admin/manage-books", { books });
+}

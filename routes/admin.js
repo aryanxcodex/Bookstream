@@ -33,6 +33,8 @@ router.get('/dashboard', isAdminLoggedin ,catchAsync(adminController.renderdashb
 
 router.get('/manage-books',isAdminLoggedin, adminController.rendermanagebooks);
 
+router.post('/manage-books', isAdminLoggedin, catchAsync(adminController.search));
+
 router.get('/manage-requests',isAdminLoggedin, catchAsync(adminController.rendermanagerequests));
 
 router.get('/manage-sections',isAdminLoggedin, adminController.rendermanagesections);
