@@ -71,13 +71,7 @@ body{
     transition: .2s;
     font-weight: 600;
     border-radius: 5px;
-    color: #FFFFFF;
     background-color: #1b1a1a;
-    text-decoration: none;
-}
-
-.nav-item a p{
-    margin-bottom: 0px;
 }
 
 .nav-item img{
