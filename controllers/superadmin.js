@@ -8,6 +8,7 @@ module.exports.login = (req, res) => {
     const redirectUrl = req.session.returnTo || "/superadmin/dashboard";
     delete req.session.returnTo;
     req.session.superadmin = true;
+    // req.session.collegeid = req.body.collegeid;
     res.redirect(redirectUrl);
 };
 
@@ -70,13 +71,14 @@ module.exports.registeradmin = async (req,res)=>{
 // module.exports.registerSuperadmin = async (req,res)=>{
 //     const username = "demo user";
 //     const password = "demohello";
-//     const superAdmin = new Superadmin({ username });
+//     const collegeid = 1111
+//     const superAdmin = new Superadmin({ username , collegeid});
 //     const registerSuperadmin = await Superadmin.register(superAdmin, password);
 //     if(registerSuperadmin) {
 //         console.log("hogaya bhai");
 //         res.send("done!");
 //     }
-// }
+// };
 
 
 

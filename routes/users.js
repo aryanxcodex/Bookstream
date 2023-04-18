@@ -13,8 +13,25 @@ router.post("/register", catchAsync(userController.registerUser));
 
 router.get("/login", userController.renderLoginForm);
 
+const authenticatecollegeid = async (req,res,next) => {
+  const collegeid = req.body.collegeid;
+  const username = req.body.username;
+
+  const user = await User.findOne({collegeid: collegeid, username: username});
+
+  if(!user) {
+     req.flash("error", "Invalid collegeid or username");
+     return res.redirect("/user/login");
+  } else {
+    next();
+  }
+}
+
+
+
 router.post(
   "/login",
+  authenticatecollegeid,
   passport.authenticate("local", {
     failureFlash: true,
     failureRedirect: "/user/login",

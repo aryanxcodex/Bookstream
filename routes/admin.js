@@ -6,7 +6,7 @@ const adminController = require("../controllers/admin");
 const passport = require("passport"); 
 const waitinglist = require("../models/waitinglist");
 const { isAdminLoggedin } = require("../middleware");
-
+const Admin = require("../models/admin");
 
 router.get("/register", catchAsync(adminController.renderRegisterForm));
 
@@ -14,8 +14,23 @@ router.get("/register", catchAsync(adminController.renderRegisterForm));
 
 router.get("/login", adminController.renderLoginForm);
 
+const authenticatecollegeid = async (req,res,next) => {
+  const collegeid = req.body.collegeid;
+  const username = req.body.username;
+
+  const user = await Admin.findOne({collegeid: collegeid, username: username});
+
+  if(!user) {
+     req.flash("error", "Invalid collegeid or username");
+     return res.redirect("/admin/login");
+  } else {
+    next();
+  }
+}
+
 router.post(
   "/login",
+  authenticatecollegeid,
   passport.authenticate("admin", {
     failureFlash: true,
     failureRedirect: "/admin/login",

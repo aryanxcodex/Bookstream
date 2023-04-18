@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 
 
 const BookSchema = new Schema({
+  collegeid: {
+    type: Number,
+    required: true,
+  },
   title: {
     type: String,
     required: true,

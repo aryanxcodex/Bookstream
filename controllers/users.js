@@ -20,6 +20,7 @@ module.exports.registerUser = async (req, res) => {
       if (err) return next(err);
       req.flash("success", "Welcome to Bookstream!");
       req.session.user = true;
+      req.session.collegeid = collegeid;
       res.redirect("/user/dashboard");
     });
   } catch (error) {
@@ -33,15 +34,17 @@ module.exports.login = (req, res) => {
   const redirectUrl = req.session.returnTo || "/user/dashboard";
   delete req.session.returnTo;
   req.session.user = true;
+  req.session.collegeid = req.body.collegeid;
   res.redirect(redirectUrl);
 };
 
 module.exports.renderDashboard = async (req,res)=>{
+  const collegeid = req.session.collegeid;
   const user = await User.findById(req.user._id);
   const list = await waitingList.find({ user: req.user._id }).populate('book');
   const { id } = req.params;
   const book = await Books.findById(id);
-  const books = await Books.find({});
+  const books = await Books.find({collegeid});
   const numOfBooks = await Books.countDocuments({});
   res.render('users/dashboard', { numOfBooks, books, book, user, list } );
 };
@@ -64,9 +67,10 @@ module.exports.renderShowBooksPage = async (req, res)=>{
 };
 
 module.exports.requestBook = async(req,res) =>{
+  const collegeid = req.session.collegeid;
   const bookid = req.params.id; 
   const userid = req.user._id;
-  const list = await waitingList.insertMany([{user: userid, book: bookid}]);
+  const list = await waitingList.insertMany([{collegeid: collegeid, user: userid, book: bookid}]);
   if(list) {
     req.flash("success", "Your request was made !");
     res.redirect("/user/dashboard");

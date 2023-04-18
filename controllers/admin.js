@@ -17,6 +17,7 @@ module.exports.login = (req, res) => {
   const redirectUrl = req.session.returnTo || "/admin/dashboard";
   delete req.session.returnTo;
   req.session.admin = true;
+  req.session.collegeid = req.body.collegeid;
   res.redirect(redirectUrl);
 };
 
@@ -26,9 +27,10 @@ module.exports.renderWaitingListPage = async (req, res) => {
 };
 
 module.exports.approveRequest = async (req, res) => {
+  const collegeid = req.session.collegeid;
   const bookid = req.params.bookid;
   const userid = req.params.userid;
-  const deleteditem = await waitingList.findOneAndDelete({ user: userid, book: bookid });
+  const deleteditem = await waitingList.findOneAndDelete({ collegeid: collegeid, user: userid, book: bookid });
   // console.log("item deleted");
   const user = await User.findById(userid);
   const book = await Book.findById(bookid);
@@ -43,15 +45,17 @@ module.exports.approveRequest = async (req, res) => {
 };
 
 module.exports.renderdashboard = async (req, res) => {
-  const numOfBooks = await Books.countDocuments({});
-  const numOfUsers = await User.countDocuments({});
-  const blacklists = await User.find({ isBlacklisted: true });
-  const borrowedbooks = await Books.find({}).populate('users');
+  const collegeid = req.session.collegeid;
+  const numOfBooks = await Books.countDocuments({collegeid: collegeid});
+  const numOfUsers = await User.countDocuments({collegeid: collegeid});
+  const blacklists = await User.find({ collegeid: collegeid, isBlacklisted: true });
+  const borrowedbooks = await Books.find({collegeid: collegeid}).populate('users');
   res.render("admin/librarian-dashboard", { numOfBooks, numOfUsers, blacklists, borrowedbooks });
 };
 
 module.exports.rendermanagebooks = async (req, res) => {
-  const books = await Books.find({});
+  const collegeid = req.session.collegeid;
+  const books = await Books.find({collegeid: collegeid});
   res.render("admin/manage-books", { books });
 };
 
@@ -69,8 +73,10 @@ module.exports.rendermanagestudents = (req, res) => {
 };
 
 module.exports.renderoverduebooks = async (req, res) => {
+  const collegeid = req.session.collegeid;
   const today = new Date();
   const users = await User.find({
+    collegeid: collegeid,
     'books_borrowed.returnAt': { $lt: today },
     isBlacklisted: false,
   });
@@ -78,7 +84,8 @@ module.exports.renderoverduebooks = async (req, res) => {
 };
 
 module.exports.renderrequestbooks = async (req, res) => {
-  const list = await waitingList.find({}).populate('user').populate('book');
+  const collegeid = req.session.collegeid;
+  const list = await waitingList.find({collegeid: collegeid}).populate('user').populate('book');
   res.render("admin/request-book", { list });
 };
 
@@ -95,8 +102,11 @@ module.exports.addbook = async (req, res) => {
 
 
 module.exports.search = async (req,res) => {
+  const collegeid = req.session.collegeid;
   const { search } = req.body;
-  const searchCriteria = {};
+  const searchCriteria = {
+    collegeid: collegeid,
+  };
 
   if (search) {
     searchCriteria.title = { $regex: search, $options: 'i' }; // Case-insensitive regex search on title

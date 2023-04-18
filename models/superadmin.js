@@ -4,6 +4,10 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const passport = require("passport");
 
 const SuperadminSchema = new Schema({
+    collegeid: {
+        type: Number,
+        required: true,
+    },
     username: {
         type: String,
         required: true,
