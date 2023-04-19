@@ -132,23 +132,8 @@ body{
 .options{
     display: flex;
     flex-direction: column;
+    align-items: start;
     /* border: 2px solid black; */
-}
-
-.profile a, .guide a, .log-out a{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    /* border: 2px solid black; */
-    font-size: 20px;
-    color: #2B2B2B;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.profile i, .guide i, .log-out i{
-    font-size: 20px;
 }
 
 hr{
