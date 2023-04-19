@@ -14,9 +14,16 @@ module.exports.renderLoginForm = (req, res) => {
 module.exports.registerUser = async (req, res) => {
   try {
     const { collegeid, email, username, password, dept, phone} = req.body;
-    const user = new User({ collegeid, phone, email, username, dept });
-    const registeredUser = await User.register(user, password);
-    req.login(registeredUser, (err) => {
+    const user = await User.findOne({collegeid: collegeid, username: username});
+    if(user) {
+      req.flash("error","User already exists with following credentials");
+      return res.redirect("/user/register");
+    }
+    const newUser = new User({collegeid, email, username, dept, phone});
+    await newUser.setPassword(password);
+    await newUser.save();
+
+    req.login(newUser, (err) => {
       if (err) return next(err);
       req.flash("success", "Welcome to Bookstream!");
       req.session.user = true;

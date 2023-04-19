@@ -35,13 +35,20 @@ module.exports.renderlibrarianform = (req,res)=>{
 
 module.exports.registeradmin = async (req,res)=>{
     const { email, username, password, dept, phone, collegeid} = req.body;
-    const admin = new Admin({ email, username, dept, phone, collegeid });
-    const registeredAdmin = await Admin.register(admin, password);
-    if(registeredAdmin) {
-        sendEmail(email, `You are now an admin of ${dept} Department`);
+    const admin = await Admin.findOne({collegeid: collegeid, username: username});
+    if(admin) {
+        req.flash("error", "Admin already exists with these credentials");
+        return res.redirect("/superadmin/dashboard/librarian-form");
     }
-    req.flash("success", "Welcome to bookstream");
-    res.redirect("/");
+    const registeredAdmin = new Admin({username, email, dept, phone, collegeid});
+    await registeredAdmin.setPassword(password);
+    await registeredAdmin.save();
+
+    if(registeredAdmin) {
+        req.flash("success", "Registered the admin successfully");
+        res.redirect("/superadmin/dashboard/librarian-form");
+        sendEmail(email, `You are now an admin of ${dept} Department`);
+    } 
 };
 
 
@@ -71,14 +78,40 @@ module.exports.registeradmin = async (req,res)=>{
 // module.exports.registerSuperadmin = async (req,res)=>{
 //     const username = "demo user";
 //     const password = "demohello";
-//     const collegeid = 1111
-//     const superAdmin = new Superadmin({ username , collegeid});
-//     const registerSuperadmin = await Superadmin.register(superAdmin, password);
-//     if(registerSuperadmin) {
+//     const collegeid = 3333;
+//     const superAdmin = await Superadmin.findOne({collegeid: collegeid, username: username});
+//     if(superAdmin) {
+//        return res.send("SuperAdmin already exists");
+//     } 
+//     const newUser = new Superadmin({collegeid, username});
+//     await newUser.setPassword(password);
+//     await newUser.save();
+
+//     if(newUser) {
 //         console.log("hogaya bhai");
 //         res.send("done!");
+//     } else {
+//         res.send("Some error occurred!");
 //     }
 // };
 
 
 
+// const registerSuperadmin = async (collegeid, username, password) => {
+//     try {
+//       // Check if username already exists in the database
+//       const existingUser = await SuperAdmin.findOne({ username });
+//       if (existingUser) {
+//         throw new Error('Username already exists');
+//       }
+  
+//       // Create a new user document
+//       const newUser = new SuperAdmin({ collegeid, username });
+//       await newUser.setPassword(password);
+//       await newUser.save();
+  
+//       return newUser;
+//     } catch (error) {
+//       throw error;
+//     }
+//   };

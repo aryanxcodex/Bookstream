@@ -7,6 +7,7 @@ const UserSchema = new Schema({
   collegeid: {
     type: Number,
     required: true,
+    unique: false,
   },
   email: {
     type: String,
@@ -43,7 +44,7 @@ const UserSchema = new Schema({
     default: false,
   },
 });
-UserSchema.plugin(passportLocalMongoose);
+UserSchema.plugin(passportLocalMongoose, {usernameUnique: false});
 
 module.exports = mongoose.model("User",UserSchema);
 
