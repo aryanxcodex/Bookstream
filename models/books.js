@@ -8,6 +8,7 @@ const BookSchema = new Schema({
   collegeid: {
     type: Number,
     required: true,
+    unique: false,
   },
   title: {
     type: String,
