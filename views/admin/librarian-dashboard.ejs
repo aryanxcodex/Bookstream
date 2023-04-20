@@ -78,7 +78,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="options">
-                                    <button class="btn btn-primary">Log-out</button>
+                                    <button class="btn btn-primary" id="logoutBtn">Log-out</button>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -210,5 +210,24 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
+<script>
+  document.getElementById('logoutBtn').addEventListener('click', function() {
+    fetch('/admin/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = '/';
+      } else {
+        console.error('Logout failed:', response.statusText);
+      }
+    })
+    .catch(error => {
+      console.error('Logout failed:', error);
+    });
+  });
+</script>  
 </html>
