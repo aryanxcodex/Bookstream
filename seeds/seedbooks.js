@@ -51,14 +51,13 @@ const category = [
 
 
 const insertbooks = async () => {
-  await Books.deleteMany();
-  for (let index = 0; index < 25; index++) {
+  for (let index = 0; index < 5; index++) {
     const randombooks = Math.floor(Math.random() * 11);
     const randomauthors = Math.floor(Math.random() * 10);
     const categories = Math.floor(Math.random() * 6);
 
     const book = new Books({
-      collegeid: 2002,
+      collegeid: 3333,
       title: `${bookstitle[randombooks]}`,
       ISBN: Math.floor(Math.random() * 2000),
       authors: [`${authors[randomauthors]}`],

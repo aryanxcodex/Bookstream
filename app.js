@@ -98,18 +98,14 @@ app.get("/", (req, res) => {
 
   if(req.session.user) {
     res.redirect("/user/dashboard");
+  } else if(req.session.admin) {
+    res.redirect("/admin/dashboard");
+  } else if(req.session.superadmin) {
+    res.redirect("/superadmin/dashboard");
+  } else {
+    res.render("home");
   }
 
-  if(req.session.admin) {
-    res.redirect("admin/dashboard");
-  }
-
-  if(req.session.superadmin) {
-    res.redirect("superadmin/dashboard");
-  }
-
-
-  res.render("home");
 });
 
 app.get("/login", (req,res)=>{

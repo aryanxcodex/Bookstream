@@ -7,6 +7,7 @@ const AdminSchema = new Schema({
   collegeid: {
     type: Number,
     required: true,
+    unique: false,
   },
   phone:{
     type: Number,
@@ -23,6 +24,6 @@ const AdminSchema = new Schema({
   },
 });
 
-AdminSchema.plugin(passportLocalMongoose);
+AdminSchema.plugin(passportLocalMongoose, {usernameUnique: false});
 
 module.exports = mongoose.model("Admin", AdminSchema);

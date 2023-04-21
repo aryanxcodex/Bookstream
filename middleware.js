@@ -16,3 +16,13 @@ module.exports.isAdminLoggedin = (req, res, next) => {
   }
   next();
 };
+
+
+module.exports.isSuperAdminLoggedin = (req,res,next) => {
+  if(!req.session.superadmin) {
+    req.session.returnTo = req.originalUrl;
+    req.flash("error", "You must be signed in as a SuperAdmin");
+    return res.redirect("/");
+  }
+  next();
+}

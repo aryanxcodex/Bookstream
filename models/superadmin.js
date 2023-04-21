@@ -14,7 +14,7 @@ const SuperadminSchema = new Schema({
     }
 });
 
-SuperadminSchema.plugin(passportLocalMongoose);
+SuperadminSchema.plugin(passportLocalMongoose, {usernameUnique: false});
 
 module.exports = mongoose.model("SuperAdmin", SuperadminSchema);
 

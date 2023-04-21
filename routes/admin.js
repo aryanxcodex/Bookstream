@@ -62,4 +62,10 @@ router.get('/request-book',isAdminLoggedin, catchAsync(adminController.renderreq
 
 router.post('/addbook',isAdminLoggedin, adminController.addbook);
 
+router.post('/logout', (req,res)=> {
+  delete req.session.admin;
+
+  res.sendStatus(200);
+});
+
 module.exports = router;
