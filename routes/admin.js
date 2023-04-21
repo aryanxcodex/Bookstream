@@ -64,7 +64,7 @@ router.post('/addbook',isAdminLoggedin, adminController.addbook);
 
 router.post('/logout', (req,res)=> {
   delete req.session.admin;
-
+  req.flash("success", "Logged you out successfully");
   res.sendStatus(200);
 });
 
