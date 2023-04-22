@@ -8,17 +8,19 @@ module.exports.login = (req, res) => {
     const redirectUrl = req.session.returnTo || "/superadmin/dashboard";
     delete req.session.returnTo;
     req.session.superadmin = true;
+    req.session.username = req.body.username;
     req.session.collegeid = req.body.collegeid;
     res.redirect(redirectUrl);
 };
 
 module.exports.renderdashboard = async (req,res)=>{
     const collegeid = req.session.collegeid;
+    const username = req.session.username;
     const numOfAdmins = await Admin.countDocuments({collegeid: collegeid});
     const numOfUsers = await User.countDocuments({collegeid: collegeid});
     const librarians = await Admin.find({collegeid: collegeid});
     const students = await User.find({collegeid: collegeid});
-    res.render("superadmin/super-dashboard", { numOfAdmins, numOfUsers, librarians, students });
+    res.render("superadmin/super-dashboard", { numOfAdmins, numOfUsers, librarians, students, username });
 };
 
 module.exports.rendermanagelibrarians = async (req,res)=> {

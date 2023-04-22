@@ -40,7 +40,9 @@ router.post(
 
 router.get('/waitinglist', catchAsync(adminController.renderWaitingListPage));
 
-router.delete('/waitinglist/:userid/:bookid', catchAsync(adminController.approveRequest));
+router.post('/waitinglist/:userid/:bookid', catchAsync(adminController.approveRequest));
+
+router.delete("/waitinglist/:userid/:bookid", catchAsync(adminController.rejectRequest));
 
 
 

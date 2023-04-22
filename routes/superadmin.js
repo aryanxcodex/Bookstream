@@ -45,7 +45,11 @@ router.get("/dashboard/librarian-form", isSuperAdminLoggedin ,superadminControll
 
 router.get("/aryan", catchAsync(superadminController.registerSuperadmin));
 
-
+router.post("/superadmin/logout", (req,res)=> {
+  delete req.session.superadmin;
+  req.flash("success", "Logged you out successfully");
+  res.sendStatus(200);
+});
 
 
 

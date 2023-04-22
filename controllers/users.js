@@ -27,6 +27,7 @@ module.exports.registerUser = async (req, res) => {
       if (err) return next(err);
       req.flash("success", "Welcome to Bookstream!");
       req.session.user = true;
+      req.session.username = newUser.username;
       req.session.collegeid = collegeid;
       res.redirect("/user/dashboard");
     });
@@ -41,6 +42,7 @@ module.exports.login = (req, res) => {
   const redirectUrl = req.session.returnTo || "/user/dashboard";
   delete req.session.returnTo;
   req.session.user = true;
+  req.session.username = req.body.username;
   req.session.collegeid = req.body.collegeid;
   res.redirect(redirectUrl);
 };

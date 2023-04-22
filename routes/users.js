@@ -49,6 +49,10 @@ router.get("/books/:id", isLoggedin, catchAsync(userController.renderShowBooksPa
 
 router.post("/books/requestbook/:id", catchAsync(userController.requestBook));
 
-
+router.post("/logout", (req,res)=> {
+  delete req.session.user;
+  req.flash("success", "Logged you out successfully");
+  res.sendStatus(200);
+});
 
 module.exports = router;
