@@ -39,7 +39,7 @@ module.exports.approveRequest = async (req, res) => {
       bookid: bookid
     };
     const updateBookArray = await User.updateOne({ _id: userid }, { $push: { books_borrowed: newBook } });
-    const updateUserArray = await Book.updateOne({ _id: bookid }, { $push: { users: userid } });
+    const updateUserArray = await Book.updateOne({ _id: bookid }, { $inc: { stock: -1 }, $push: { users: userid } });
     sendEmail(user.email, `Your request for the book ${book.title} was approved!`);
     req.flash("success", "The request was approved!");
     res.redirect("/admin/manage-requests");
@@ -60,40 +60,46 @@ module.exports.renderdashboard = async (req, res) => {
 };
 
 module.exports.rendermanagebooks = async (req, res) => {
+  const username = req.session.username;
   const collegeid = req.session.collegeid;
   const books = await Books.find({collegeid: collegeid});
-  res.render("admin/manage-books", { books });
+  res.render("admin/manage-books", { books, username });
 };
 
 module.exports.rendermanagerequests = async (req, res) => {
   const collegeid = req.session.collegeid;
+  const username = req.session.username;
   const list = await waitingList.find({collegeid: collegeid}).populate('user').populate('book');
-  res.render("admin/manage-requests", { list });
+  res.render("admin/manage-requests", { list, username });
 };
 
 module.exports.rendermanagesections = (req, res) => {
-  res.render("admin/manage-sections");
+  const username = req.session.username;
+  res.render("admin/manage-sections", { username });
 };
 
 module.exports.rendermanagestudents = (req, res) => {
-  res.render("admin/manage-students");
+  const username = req.session.username;
+  res.render("admin/manage-students", { username });
 };
 
 module.exports.renderoverduebooks = async (req, res) => {
   const collegeid = req.session.collegeid;
+  const username = req.session.username;
   const today = new Date();
   const users = await User.find({
     collegeid: collegeid,
     'books_borrowed.returnAt': { $lt: today },
     isBlacklisted: false,
   });
-  res.render("admin/overdue-books", { users });
+  res.render("admin/overdue-books", { users, username });
 };
 
 module.exports.renderrequestbooks = async (req, res) => {
   const collegeid = req.session.collegeid;
+  const username = req.session.username;
   const list = await waitingList.find({collegeid: collegeid}).populate('user').populate('book');
-  res.render("admin/request-book", { list });
+  res.render("admin/request-book", { list, username });
 };
 
 module.exports.addbook = async (req, res) => {
@@ -111,6 +117,7 @@ module.exports.addbook = async (req, res) => {
 module.exports.search = async (req,res) => {
   const collegeid = req.session.collegeid;
   const { search } = req.body;
+  const username = req.session.username;
   const searchCriteria = {
     collegeid: collegeid,
   };
@@ -121,7 +128,7 @@ module.exports.search = async (req,res) => {
 
   const books = await Book.find(searchCriteria);
 
-  res.render("admin/manage-books", { books });
+  res.render("admin/manage-books", { books, username });
 }
 
 module.exports.rejectRequest = async (req,res) => {
