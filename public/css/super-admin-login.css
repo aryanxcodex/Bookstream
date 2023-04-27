@@ -146,12 +146,9 @@ hr{
     /* border: 2px solid black; */
 }
 
-.username{
-    /* border: 2px solid black; */
-}
 
 .username input{
-    width: 418px;
+    width: 260x;
     height: 40px;
     font-size: medium;
     outline: none;
