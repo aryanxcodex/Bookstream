@@ -103,10 +103,11 @@ module.exports.renderrequestbooks = async (req, res) => {
 };
 
 module.exports.addbook = async (req, res) => {
+  const collegeid = req.session.collegeid;
   const { title, ISBN, author, cat } = req.body;
   const authors = [author];
   const category = [cat];
-  const addbook = await Books.insertMany({ title, ISBN, authors, category });
+  const addbook = await Books.insertMany({ collegeid, title, ISBN, authors, category });
   if (addbook) {
     req.flash("success", "added the book successfully");
     res.redirect("/admin/manage-books");
