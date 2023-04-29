@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="   return-book.css">
+  <link rel="stylesheet" href="/css/return-book.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
         </a>
       </div>
       <div class="nav-item">
-        <a href="raise-book.html"><img src="/images/book-icon.svg" alt="">
+        <a href="/user/return-books"><img src="/images/book-icon.svg" alt="">
           <p>Return Book</p>
         </a>
       </div>
@@ -48,7 +48,7 @@
   <div class="main-cont">
     <div class="header">
       <div class="title">
-        <h1>Request Book</h1>
+        <h1>Return Book</h1>
       </div>
       <div class="acc_settings" data-modal-target="top-right-modal" data-modal-toggle="top-right-modal">
         <img src="/images/setting-icon.svg" alt="settings">
@@ -106,27 +106,15 @@
         </thead>
         <tbody>
           <%- include('../layouts/flash') %> 
-          <% for(book of books) { %>
-            <% let flag = false %>  
-              <% for(l of list) { %>
-              <% if((l.book._id).toString() === (book._id).toString()) {%>
-              <% flag = true %> 
-              <% } %>   
-              <% } %>
-            <tr>
-              <td><%= book.title %></td>
-              <td><%= book.authors[0] %></td>
-              <td><%= book.category[0] %></td>
-              <% if(flag) { %>
-                  <td>Requested</td>
-              <% } else if(user.books_borrowed.some(e => (e.bookid).toString() === (book._id).toString())) { %>
-                  <td>Approved!</td>    
-              <% } else if( book.stock ) { %>
-                  <td><form action="/user/books/requestbook/<%= book._id %>" method="post"><button>Request Book</button></form></td>
-              <% } else { %>
-                  <td>Out of Stock!</td> 
-              <% } %>           
-            </tr>
+          <% for(b of user.books_borrowed) { %>
+              <tr>
+                <td><%= b.bookid.title %></td>
+                <td><%= b.bookid.authors[0] %></td>
+                <td><%= b.bookid.category[0] %></td>
+                <td><%= b.borrowedAt.toLocaleDateString() %></td>
+                <td><%= b.returnAt.toLocaleDateString() %></td>
+                <td></td>
+              </tr>
           <% } %> 
         </tbody>
         </tr>

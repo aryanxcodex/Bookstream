@@ -41,6 +41,8 @@ router.post(
 
 router.get("/dashboard", isLoggedin , catchAsync(userController.renderDashboard));
 
+router.get("/return-books", isLoggedin, catchAsync(userController.renderReturnBooks));
+
 router.get("/books", isLoggedin, userController.renderBooksPage);
 
 router.post("/user/books")

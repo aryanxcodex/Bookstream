@@ -54,7 +54,7 @@ module.exports.renderDashboard = async (req,res)=>{
   const { id } = req.params;
   const book = await Books.findById(id);
   const books = await Books.find({collegeid});
-  const numOfBooks = await Books.countDocuments({});
+  const numOfBooks = await Books.countDocuments({collegeid});
   res.render('users/dashboard', { numOfBooks, books, book, user, list } );
 };
 
@@ -87,5 +87,16 @@ module.exports.requestBook = async(req,res) =>{
     res.flash("error", "Error processing request");
     res.redirect("/user/dashboard");
   }
+};
+
+
+module.exports.renderReturnBooks = async (req,res) => {
+  const collegeid = req.session.collegeid;
+  const user = await User.findById(req.user._id).populate("books_borrowed.bookid");
+  const { id } = req.params;
+  const book = await Books.findById(id);
+  const books = await Books.find({collegeid});
+  const numOfBooks = await Books.countDocuments({collegeid});
+  res.render("users/return-book", { numOfBooks, books, book, user });
 };
 
