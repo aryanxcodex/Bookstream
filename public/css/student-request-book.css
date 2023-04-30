@@ -128,6 +128,12 @@ hr{
     height: 5px;
 }
 
+.search-book{
+    width: 60%;
+    margin: 40px 0px;
+    /* border: 2px solid black; */
+}
+
 .data-tab{
     display: flex;
     flex-direction: column;

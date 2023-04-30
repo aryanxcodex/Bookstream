@@ -143,12 +143,12 @@ hr{
     margin-top: 10px;
     font-size: 20px;
     font-weight: 500;
-    /* border: 2px solid black; */
+    border: 2px solid black;
 }
 
 
 .username input{
-    width: 418px;
+    width: 200px;
     height: 40px;
     font-size: medium;
     outline: none;

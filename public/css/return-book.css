@@ -198,7 +198,7 @@ hr{
     background-color: #E7EFFF;
     border-radius: 15px;
     margin: 20px 0px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 
@@ -225,6 +225,10 @@ table.blueTable {
 
   table.blueTable tbody td {
     font-size: 17px;
+  }
+
+  table.blueTable td{
+    height: 30px;
   }
 
   table.blueTable thead th {
