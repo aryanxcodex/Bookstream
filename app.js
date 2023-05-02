@@ -78,17 +78,17 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  const userAgent = req.headers['user-agent'];
-  const isMobile = /mobile/i.test(userAgent);
-  if (req.device.type === 'phone') {
-    res.send("<h1>Please access this site on a desktop browser for the best experience.</h1>");
-  }else if (isMobile) {
-    res.send('<h1>Please access this site on a desktop browser for the best experience.</h1>');
-  } else {
-    next();
-  }
-});
+// app.use((req, res, next) => {
+//   const userAgent = req.headers['user-agent'];
+//   const isMobile = /mobile/i.test(userAgent);
+//   if (req.device.type === 'phone') {
+//     res.send("<h1>Please access this site on a desktop browser for the best experience.</h1>");
+//   }else if (isMobile) {
+//     res.send('<h1>Please access this site on a desktop browser for the best experience.</h1>');
+//   } else {
+//     next();
+//   }
+// });
 
 app.use("/user", userRoutes);
 app.use("/admin", adminRoutes);
@@ -96,11 +96,11 @@ app.use("/superadmin", superadminRoutes);
 
 app.get("/", (req, res) => {
 
-  if(req.session.user) {
+  if (req.session.user) {
     res.redirect("/user/dashboard");
-  } else if(req.session.admin) {
+  } else if (req.session.admin) {
     res.redirect("/admin/dashboard");
-  } else if(req.session.superadmin) {
+  } else if (req.session.superadmin) {
     res.redirect("/superadmin/dashboard");
   } else {
     res.render("home");
@@ -108,22 +108,22 @@ app.get("/", (req, res) => {
 
 });
 
-app.get("/login", (req,res)=>{
+app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/register", (req,res)=>{
+app.get("/register", (req, res) => {
   res.render("sign-up");
 });
 
-app.get("/onboarding", (req,res)=>{
+app.get("/onboarding", (req, res) => {
   res.render("onboarding");
 });
 
-app.post("/feedback", async (req,res) => {
+app.post("/feedback", async (req, res) => {
   const email = "ganeshgajelly66@gmail.com";
   const { feedback } = req.body;
-  sendEmail(email,feedback);
+  sendEmail(email, feedback);
   res.redirect('/');
 });
 

@@ -44,11 +44,11 @@
                     <p> Manage Students</p>
                 </a>
             </div>
-            <div class="nav-item">
+            <!-- <div class="nav-item">
                 <a href="/admin/manage-sections"><img src="/images/location-icon.svg" alt="">
                     <p> Manage Sections</p>
                 </a>
-            </div>
+            </div> -->
             <div class="nav-item">
                 <a href="/admin/manage-requests"><img src="/images/book-icon.svg" alt="">
                     <p> Borrow requests</p>
@@ -96,7 +96,9 @@
                                     class="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square">
                                 <div class="space-y-4 text-center divide-y divide-gray-700">
                                     <div class="my-2 space-y-1">
-                                        <h2 class="text-xl font-semibold sm:text-2xl"><%= username %></h2>
+                                        <h2 class="text-xl font-semibold sm:text-2xl">
+                                            <%= username %>
+                                        </h2>
                                         <p class="px-5 text-xs sm:text-base dark:text-gray-400">Full-stack developer</p>
                                     </div>
                                 </div>
@@ -150,8 +152,7 @@
                                         <%= l.user.dept %>
                                     </td>
                                     <td id="actions">
-                                        <form
-                                            action="/admin/waitinglist/<%= l.user._id %>/<%= l.book._id %>"
+                                        <form action="/admin/waitinglist/<%= l.user._id %>/<%= l.book._id %>"
                                             method="post"><button>Approve</button></form><button
                                             id="updateProductButton" data-modal-toggle="updateProductModal"
                                             class="block text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-0 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -184,15 +185,18 @@
                                                     </button>
                                                 </div>
                                                 <!-- Modal body -->
-                                                <form action="/admin/waitinglist/<%= l.user._id %>/<%= l.book._id %>?_method=DELETE" method="post">
+                                                <form
+                                                    action="/admin/waitinglist/<%= l.user._id %>/<%= l.book._id %>?_method=DELETE"
+                                                    method="post">
                                                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                                                         <div>
                                                             <label for="reason"
-                                                                class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Reason for rejection</label>
-                                                            <input type="text" name="message" id="name"
-                                                                value=""
+                                                                class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Reason
+                                                                for rejection</label>
+                                                            <input type="text" name="message" id="name" value=""
                                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                                placeholder="Meet me in the Library first" style="width: 315px;">
+                                                                placeholder="Meet me in the Library first"
+                                                                style="width: 315px;">
                                                         </div>
                                                         <!-- <div>
                                                             <label for="brand"
@@ -230,7 +234,8 @@
                                                     </div>
                                                     <div class="flex items-center space-x-4">
                                                         <button type="submit"
-                                                            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" style="background-color: blueviolet;">
+                                                            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                                            style="background-color: blueviolet;">
                                                             Reject
                                                         </button>
                                                         <button type="button" style="color:red"
