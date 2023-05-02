@@ -204,7 +204,7 @@ hr{
 
 table.blueTable {
     width: 95%;
-    height: 90%;
+    height: fit-content;
     text-align: left;
     position: relative;
     top: 10px;
@@ -233,6 +233,7 @@ table.blueTable {
 
   table.blueTable thead th {
     font-size: 25px;
+    margin-bottom: 20px;
     position: sticky;
     font-weight: bold;
   }

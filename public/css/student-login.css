@@ -143,7 +143,7 @@ hr{
     margin-top: 10px;
     font-size: 20px;
     font-weight: 500;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 
@@ -156,6 +156,10 @@ hr{
     border: 1px solid #D6D6D6;
     border-radius: 10px;
     padding-left: 10px;
+}
+
+#college-id{
+    margin-left: 18px;
 }
 
 .username label{

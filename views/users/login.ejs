@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstream</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/student-login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <header>
         <a href="/"><img src="/images/system-logo.svg" alt="logo"></a>
@@ -17,57 +24,58 @@
     <div class="container">
         <div class="text-container">
             <h1>Library Management made easy!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, atque? Repudiandae quaerat cum vitae voluptates aspernatur sit incidunt sint maxime dolor! Quaerat necessitatibus accusantium possimus quo quas repellat laudantium tempora nisi incidunt aut fuga laboriosam ad tenetur voluptate rem repudiandae accusamus impedit mollitia, consequatur odit ipsam facilis corporis dolorum. Nihil?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, atque? Repudiandae quaerat cum vitae
+                voluptates aspernatur sit incidunt sint maxime dolor! Quaerat necessitatibus accusantium possimus quo
+                quas repellat laudantium tempora nisi incidunt aut fuga laboriosam ad tenetur voluptate rem repudiandae
+                accusamus impedit mollitia, consequatur odit ipsam facilis corporis dolorum. Nihil?</p>
         </div>
         <a href="/login"><img src="/images/arrow-left-nav.svg" id="prev-page" alt="Previous-page"></a>
         <div class="form-container">
             <h2>You are just a few steps away from a seamless transition.....</h2>
             <div class="actions-container">
                 <%- include('../layouts/flash') %>
-                <div class="login-form">
-                    <div class="title">
-                        <img src="/images/user-icon.svg" alt="login">
-                        <p>Student Login</p>
-                    </div>
-                    <hr>
-                    <form action="/user/login" method="post">
-                        <div class="user-details">
-                            <div class="username">
-                                <label for="username">Username</label><br>
-                                <input type="text" name="username" id="username">
-                            </div>
+                    <div class="login-form">
+                        <div class="title">
+                            <img src="/images/user-icon.svg" alt="login">
+                            <p>Student Login</p>
                         </div>
-                        <div class="user-details">
-                            <div class="username">
-                                <label for="username">CollegeID</label><br>
-                                <input type="number" name="collegeid" id="username">
-                            </div>
-                        </div>
-                        <div class="user-password">
-                            <div class="pass">
-                                <label for="password">Password</label>
-                                <a href="#" style="text-decoration: none;">
-                                    <p>Forgot password?</p>
-                                </a>
-                            </div><br>
-                            <div class="pass-input">
-                                <input type="password" name="password" id="password">
-                                <div class="show-pass">
-                                    <img src="/images/password-eye.svg" alt="" id="toggle">
+                        <hr>
+                        <form action="/user/login" method="post">
+                            <div class="user-details">
+                                <div class="username">
+                                    <label for="username">Username</label><br>
+                                    <input type="text" name="username" id="username">
+                                </div>
+                                <div class="username" id="college-id">
+                                    <label for="college-id">CollegeID</label><br>
+                                    <input type="number" name="collegeid" id="username">
                                 </div>
                             </div>
-                        </div>
-                        <div class="remember-me">
-                            <input type="checkbox" name="remember-me" id="remember-me">
-                            <label for="remember-me">Remember me</label>
-                        </div>
-                        <div class="login-btn">
-                            <button type="submit" id="submit">Login</button>
-                        </div>
-                    </form>
-                    <!-- Trigger/Open The Modal
+                            <div class="user-password">
+                                <div class="pass">
+                                    <label for="password">Password</label>
+                                    <a href="#" style="text-decoration: none;">
+                                        <p>Forgot password?</p>
+                                    </a>
+                                </div><br>
+                                <div class="pass-input">
+                                    <input type="password" name="password" id="password">
+                                    <div class="show-pass">
+                                        <img src="/images/password-eye.svg" alt="" id="toggle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="remember-me">
+                                <input type="checkbox" name="remember-me" id="remember-me">
+                                <label for="remember-me">Remember me</label>
+                            </div>
+                            <div class="login-btn">
+                                <button type="submit" id="submit">Login</button>
+                            </div>
+                        </form>
+                        <!-- Trigger/Open The Modal
                     <button id="trigger">Open Modal</button> -->
-                </div>
+                    </div>
             </div>
         </div>
     </div>
@@ -75,51 +83,53 @@
     <!-- <div id="alertModal" class="alertModal">
         <div class="test-cont">
              Modal content -->
-            <!-- <div class="alertmodal-content">
+    <!-- <div class="alertmodal-content">
                 <p>The username and password do not match!</p><span class="closebtn"><i class="fa-solid fa-xmark"></i></span>
             </div>
         </div>
-    </div> --> 
+    </div> -->
     <script>
-         const password = document.getElementById("password"); 
+        const password = document.getElementById("password");
         const toggle = document.getElementById("toggle");
 
-        document.getElementsByClassName("show-pass")[0].addEventListener("click", function(){
-            if(password.type == "password"){
+        document.getElementsByClassName("show-pass")[0].addEventListener("click", function () {
+            if (password.type == "password") {
                 password.type = "text";
-                toggle.src = "/images/close-eye.svg";}
-                else{
-                    password.type = "password";
-                    toggle.src = "/images/password-eye.svg";
-                }
+                toggle.src = "/images/close-eye.svg";
+            }
+            else {
+                password.type = "password";
+                toggle.src = "/images/password-eye.svg";
+            }
         });
     </script>
     <script>
         // Get the modal
         var alertmodal = document.getElementById("alertModal");
-        
+
         // Get the button that opens the modal
         var trigger = document.getElementById("trigger");
-        
+
         // Get the <span> element that closes the modal
         var close = document.getElementsByClassName("closebtn")[0];
-        
+
         // When the user clicks the button, open the modal 
-        trigger.onclick = function() {
-          alertmodal.style.display = "block";
+        trigger.onclick = function () {
+            alertmodal.style.display = "block";
         }
-        
+
         // When the user clicks on <span> (x), close the modal
-        close.onclick = function() {
-          alertmodal.style.display = "none";
-        }
-        
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
+        close.onclick = function () {
             alertmodal.style.display = "none";
-          }
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                alertmodal.style.display = "none";
+            }
         }
     </script>
 </body>
+
 </html>
