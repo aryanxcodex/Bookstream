@@ -22,16 +22,16 @@ module.exports.login = (req, res) => {
   res.redirect(redirectUrl);
 };
 
-module.exports.renderWaitingListPage = async (req, res) => {
-  const list = await waitingList.find({}).populate('user').populate('book');
-  res.render('admin/waitingList', { list });
-};
+// module.exports.renderWaitingListPage = async (req, res) => {
+//   const list = await waitingList.find({}).populate('user').populate('book');
+//   res.render('admin/waitingList', { list });
+// };
 
 module.exports.approveRequest = async (req, res) => {
   const collegeid = req.session.collegeid;
   const bookid = req.params.bookid;
   const userid = req.params.userid;
-  const deleteditem = await waitingList.findOneAndDelete({ collegeid: collegeid, user: userid, book: bookid });
+  const deleteditem = await waitingList.findOneAndDelete({ type: "Approval", collegeid: collegeid, user: userid, book: bookid });
   if (deleteditem) {
     const user = await User.findById(userid);
     const book = await Book.findById(bookid);
@@ -69,13 +69,15 @@ module.exports.rendermanagebooks = async (req, res) => {
 module.exports.rendermanagerequests = async (req, res) => {
   const collegeid = req.session.collegeid;
   const username = req.session.username;
-  const list = await waitingList.find({collegeid: collegeid}).populate('user').populate('book');
+  const list = await waitingList.find({type: "Approval", collegeid: collegeid}).populate('user').populate('book');
   res.render("admin/manage-requests", { list, username });
 };
 
-module.exports.rendermanagesections = (req, res) => {
+module.exports.rendermanagesections = async (req, res) => {
+  const collegeid = req.session.collegeid;
   const username = req.session.username;
-  res.render("admin/manage-sections", { username });
+  const list = await waitingList.find({type: "Confirmation", collegeid: collegeid}).populate('user').populate('book');
+  res.render("admin/manage-sections", { username, list });
 };
 
 module.exports.rendermanagestudents = (req, res) => {
@@ -95,12 +97,12 @@ module.exports.renderoverduebooks = async (req, res) => {
   res.render("admin/overdue-books", { users, username });
 };
 
-module.exports.renderrequestbooks = async (req, res) => {
-  const collegeid = req.session.collegeid;
-  const username = req.session.username;
-  const list = await waitingList.find({collegeid: collegeid}).populate('user').populate('book');
-  res.render("admin/request-book", { list, username });
-};
+// module.exports.renderrequestbooks = async (req, res) => {
+//   const collegeid = req.session.collegeid;
+//   const username = req.session.username;
+//   const list = await waitingList.find({collegeid: collegeid}).populate('user').populate('book');
+//   res.render("admin/request-book", { list, username });
+// };
 
 module.exports.addbook = async (req, res) => {
   const collegeid = req.session.collegeid;
@@ -137,7 +139,7 @@ module.exports.rejectRequest = async (req,res) => {
   const bookid = req.params.bookid;
   const userid = req.params.userid;
   const message = req.body.message;
-  const deleteditem = await waitingList.findOneAndDelete({ collegeid: collegeid, user: userid, book: bookid });
+  const deleteditem = await waitingList.findOneAndDelete({ type: "Approval", collegeid: collegeid, user: userid, book: bookid });
   if(deleteditem) {
     const user = await User.findById(userid);
     const book = await Book.findById(bookid);
@@ -149,3 +151,27 @@ module.exports.rejectRequest = async (req,res) => {
     res.redirect("/admin/manage-requests");
   }
 };
+
+
+module.exports.confirmReturn = async (req,res) => {
+  const collegeid = req.session.collegeid;
+  const bookid = req.params.bookid;
+  const userid = req.params.userid;
+  const deleteditem = await waitingList.findOneAndDelete({ type: "Confirmation", collegeid: collegeid, user: userid, book: bookid });
+  if (deleteditem) {
+    const user = await User.findById(userid);
+    const book = await Book.findById(bookid);
+    const newBook = {
+      bookid: bookid
+    };
+    const updateBookArray = await User.updateOne({ _id: userid }, { $pull: { books_borrowed: newBook } });
+    const updateUserArray = await Book.updateOne({ _id: bookid }, { $inc: { stock: 1 }, $pull: { users: userid } });
+    sendEmail(user.email, `Return of the book ${book.title} was confirmed`);
+    req.flash("success", "Confirmation Acknowledged");
+    res.redirect("/admin/manage-sections");
+  } else {
+    req.flash("error", "Can't confirm request something went wrong");
+    res.redirect("/admin/manage-sections");
+  }
+
+}

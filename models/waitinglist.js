@@ -13,6 +13,11 @@ const WaitingListSchema = new Schema({
     book: {
         type: Schema.Types.ObjectId,
         ref: "Books"
+    },
+    type: {
+        type: String,
+        enum: ["Approval", "Confirmation"],
+        required: true
     }
 });
 

@@ -50,7 +50,7 @@ module.exports.login = (req, res) => {
 module.exports.renderDashboard = async (req,res)=>{
   const collegeid = req.session.collegeid;
   const user = await User.findById(req.user._id);
-  const list = await waitingList.find({ user: req.user._id }).populate('book');
+  const list = await waitingList.find({ type: "Approval", user: req.user._id }).populate('book');
   const { id } = req.params;
   const book = await Books.findById(id);
   const books = await Books.find({collegeid});
@@ -67,19 +67,19 @@ module.exports.renderBooksPage = async (req,res)=>{
   res.render('users/books', { books });
 };
 
-module.exports.renderShowBooksPage = async (req, res)=>{
-  const user = await User.findById(req.user._id);
-  const list = await waitingList.find({ user: req.user._id }).populate('book');
-  const { id } = req.params;
-  const book = await Books.findById(id);
-  res.render('users/showbooks', { book, user, list });
-};
+// module.exports.renderShowBooksPage = async (req, res)=>{
+//   const user = await User.findById(req.user._id);
+//   const list = await waitingList.find({ user: req.user._id }).populate('book');
+//   const { id } = req.params;
+//   const book = await Books.findById(id);
+//   res.render('users/showbooks', { book, user, list });
+// };
 
 module.exports.requestBook = async(req,res) =>{
   const collegeid = req.session.collegeid;
   const bookid = req.params.id; 
   const userid = req.user._id;
-  const list = await waitingList.insertMany([{collegeid: collegeid, user: userid, book: bookid}]);
+  const list = await waitingList.insertMany([{type: "Approval", collegeid: collegeid, user: userid, book: bookid}]);
   if(list) {
     req.flash("success", "Your request was made !");
     res.redirect("/user/dashboard");
@@ -99,4 +99,41 @@ module.exports.renderReturnBooks = async (req,res) => {
   const numOfBooks = await Books.countDocuments({collegeid});
   res.render("users/return-book", { numOfBooks, books, book, user });
 };
+
+module.exports.search = async (req,res) => {
+  const collegeid = req.session.collegeid;
+  const { search } = req.body;
+  const username = req.session.username;
+  const user = await User.findById(req.user._id);
+  const list = await waitingList.find({ type: "Approval", user: req.user._id }).populate('book');
+  const { id } = req.params;
+  const book = await Books.findById(id);
+  const numOfBooks = await Books.countDocuments({collegeid});
+  const searchCriteria = {
+    collegeid: collegeid,
+  };
+
+  if (search) {
+    searchCriteria.title = { $regex: search, $options: 'i' }; // Case-insensitive regex search on title
+  }
+
+  const books = await Books.find(searchCriteria);
+
+  res.render("users/dashboard", { numOfBooks, books, book, user, list, username });
+};
+
+module.exports.returnBook = async (req,res) => {
+  
+  const collegeid = req.session.collegeid;
+  const bookid = req.params.id; 
+  const userid = req.user._id;
+  const list = await waitingList.insertMany([{type: "Confirmation", collegeid: collegeid, user: userid, book: bookid}]);
+  if(list) {
+    req.flash("success", "Book return request was made !");
+    res.redirect("/user/return-books");
+  } else {
+    res.flash("error", "Error processing request ;(");
+    res.redirect("/user/return-books");
+  }
+}
 

@@ -44,7 +44,7 @@ router.post('/waitinglist/:userid/:bookid', catchAsync(adminController.approveRe
 
 router.delete("/waitinglist/:userid/:bookid", catchAsync(adminController.rejectRequest));
 
-
+router.post("/confirmReturn/:userid/:bookid", catchAsync(adminController.confirmReturn));
 
 router.get('/dashboard', isAdminLoggedin ,catchAsync(adminController.renderdashboard));
 
@@ -54,7 +54,7 @@ router.post('/manage-books', isAdminLoggedin, catchAsync(adminController.search)
 
 router.get('/manage-requests',isAdminLoggedin, catchAsync(adminController.rendermanagerequests));
 
-router.get('/manage-sections',isAdminLoggedin, adminController.rendermanagesections);
+router.get('/manage-sections',isAdminLoggedin, catchAsync(adminController.rendermanagesections));
 
 router.get('/manage-students',isAdminLoggedin, adminController.rendermanagestudents);
 

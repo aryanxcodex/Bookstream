@@ -43,6 +43,8 @@ router.get("/dashboard", isLoggedin , catchAsync(userController.renderDashboard)
 
 router.get("/return-books", isLoggedin, catchAsync(userController.renderReturnBooks));
 
+router.post("/return-books/:id", isLoggedin, catchAsync(userController.returnBook));
+
 router.get("/books", isLoggedin, userController.renderBooksPage);
 
 router.post("/user/books")
@@ -56,5 +58,7 @@ router.post("/logout", (req,res)=> {
   req.flash("success", "Logged you out successfully");
   res.sendStatus(200);
 });
+
+router.post("/search", catchAsync(userController.search));
 
 module.exports = router;
