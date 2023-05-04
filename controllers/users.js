@@ -50,7 +50,7 @@ module.exports.login = (req, res) => {
 module.exports.renderDashboard = async (req,res)=>{
   const collegeid = req.session.collegeid;
   const user = await User.findById(req.user._id);
-  const list = await waitingList.find({ type: "Approval", user: req.user._id }).populate('book');
+  const list = await waitingList.find({ collegeid: collegeid, type: "Approval", user: req.user._id }).populate('book');
   const { id } = req.params;
   const book = await Books.findById(id);
   const books = await Books.find({collegeid});
@@ -93,11 +93,12 @@ module.exports.requestBook = async(req,res) =>{
 module.exports.renderReturnBooks = async (req,res) => {
   const collegeid = req.session.collegeid;
   const user = await User.findById(req.user._id).populate("books_borrowed.bookid");
+  const list = await waitingList.find({ collegeid: collegeid, type: "Confirmation", user: req.user._id }).populate('book');
   const { id } = req.params;
   const book = await Books.findById(id);
   const books = await Books.find({collegeid});
   const numOfBooks = await Books.countDocuments({collegeid});
-  res.render("users/return-book", { numOfBooks, books, book, user });
+  res.render("users/return-book", { numOfBooks, books, book, user, list });
 };
 
 module.exports.search = async (req,res) => {
