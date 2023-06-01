@@ -57,7 +57,8 @@ const insertbooks = async () => {
     const categories = Math.floor(Math.random() * 6);
 
     const book = new Books({
-      collegeid: 3333,
+      collegeid: 1111,
+      location: "college",
       title: `${bookstitle[randombooks]}`,
       ISBN: Math.floor(Math.random() * 2000),
       authors: [`${authors[randomauthors]}`],
